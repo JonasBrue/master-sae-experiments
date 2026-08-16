@@ -1,0 +1,17 @@
+name: SciQ
+dataset_name: allenai/sciq
+dataset_config: default
+dataset_split_train: train
+dataset_split_test: validation
+combine_splits: true
+choices: [A, B, C, D]
+answer_key_type: text_match
+field_mapping:
+  question: question
+  question_fields: [support, question]
+  choices_format: separate_fields
+  choices_fields: [distractor1, distractor2, distractor3, correct_answer]
+  shuffle_choices: true
+  answer: correct_answer
+prompt_instruction: "Answer the following science question."
+cache_name: sciq_default

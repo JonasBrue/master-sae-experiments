@@ -1,0 +1,21 @@
+name: "Science-of-Finetuning Difference-BC SAE (Gemma-2-2B base-act − chat-act, BatchTopK K100, 32x, Layer 13) — EXPERIMENTAL"
+architecture: "batchtopk"
+repo: "science-of-finetuning/SAE-difference_bc-gemma-2-2b-L13-x32-k100-lr1e-04-local-shuffling"
+filename: "model.safetensors"
+config_filename: "config.json"
+# WARNING: NOT directly compatible with the standard single-model pipeline.
+# This SAE is trained on the DIFFERENCE (base_act - chat_act) at layer 13.
+# To use at inference time you must:
+#   1. run gemma-2-2b (base) and gemma-2-2b-it (chat) on the same input,
+#   2. cache layer-13 activations from both,
+#   3. feed (base - chat) to the encoder.
+# Standard pipeline feeds a single model's activation → interpretations will be wrong.
+# Model ref points to the base model arbitrarily; dual-model support must be added to use this.
+# d_hidden = 73728 = 2304 * 32 (expansion factor 32).
+available_layers: [13]
+d_model: 2304
+d_hidden: 73728
+top_k: 100
+file_format: "safetensors"
+hook_point: "resid_post"
+model: "../models/gemma2_2b.yaml"

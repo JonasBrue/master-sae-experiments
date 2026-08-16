@@ -1,0 +1,12 @@
+name: "EleutherAI TopK 32x MLP (Llama-3.1-8B)"
+architecture: "batchtopk"
+repo: "EleutherAI/sae-llama-3.1-8b-32x"
+filename: "layers.{layer}.mlp/sae.safetensors"
+config_filename: "layers.{layer}.mlp/cfg.json"
+available_layers: [23, 29]
+d_model: 4096
+d_hidden: 131072
+top_k: 128
+file_format: "safetensors"
+hook_point: "mlp"
+model: "../models/llama31_8b.yaml"

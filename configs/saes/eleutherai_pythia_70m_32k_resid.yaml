@@ -1,0 +1,12 @@
+name: "EleutherAI TopK K32 32k Resid (Pythia-70M)"
+architecture: "batchtopk"
+repo: "EleutherAI/sae-pythia-70m-32k"
+filename: "layers.{layer}/sae.safetensors"
+config_filename: "layers.{layer}/cfg.json"
+available_layers: [0, 1, 2, 3, 4, 5]
+d_model: 512
+d_hidden: 32768
+top_k: 16
+file_format: "safetensors"
+hook_point: "resid_post"
+model: "../models/pythia_70m.yaml"

@@ -1,0 +1,12 @@
+name: "EleutherAI TopK K32 32k MLP (Pythia-160M-deduped)"
+architecture: "batchtopk"
+repo: "EleutherAI/sae-pythia-160m-deduped-32k"
+filename: "layers.{layer}.mlp/sae.safetensors"
+config_filename: "layers.{layer}.mlp/cfg.json"
+available_layers: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+d_model: 768
+d_hidden: 65536
+top_k: 32
+file_format: "safetensors"
+hook_point: "mlp"
+model: "../models/pythia_160m_deduped.yaml"

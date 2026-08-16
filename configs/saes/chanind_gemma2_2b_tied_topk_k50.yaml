@@ -1,0 +1,16 @@
+name: "Chanind Tied TopK K50 18k Resid (Gemma-2-2B base, fineweb, Layer 1 only)"
+architecture: "batchtopk"
+repo: "chanind/sae-gemma-2-2b-tied-topk"
+filename: "blocks.1.hook_resid_post/l0_50/sae_weights.safetensors"
+config_filename: "blocks.1.hook_resid_post/l0_50/cfg.json"
+# Only Layer 1 available in this repo; specialised for feature-absorption research
+# (wandb entity: anti-absorb). Tied encoder/decoder weights are a training detail,
+# transparent at inference. Folder name "l0_50" corresponds to K=50 in cfg.json.
+# cfg.json: apply_b_dec_to_input=true → matches default center_input=true.
+available_layers: [1]
+d_model: 2304
+d_hidden: 18432
+top_k: 50
+file_format: "safetensors"
+hook_point: "resid_post"
+model: "../models/gemma2_2b.yaml"

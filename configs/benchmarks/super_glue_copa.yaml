@@ -1,0 +1,16 @@
+name: SuperGLUE-COPA
+dataset_name: aps/super_glue
+dataset_config: copa
+dataset_split_train: train
+dataset_split_test: validation
+combine_splits: true
+choices: [A, B]
+answer_key_type: index_0
+field_mapping:
+  question: premise
+  question_fields: [premise, question]
+  choices_format: separate_fields
+  choices_fields: [choice1, choice2]
+  answer: label
+prompt_instruction: "Choose the more plausible alternative."
+cache_name: super_glue_copa

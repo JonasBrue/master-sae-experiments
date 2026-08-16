@@ -1,0 +1,19 @@
+name: "Chanind BatchTopK→JumpReLU Matryoshka 32k Resid (Gemma-2-2B base, pile, snap-loss)"
+architecture: "jump_relu"
+repo: "chanind/gemma-2-2b-batch-topk-matryoshka-saes-w-32k-l0-40"
+filename: "snap/blocks.{layer}.hook_resid_post/sae_weights.safetensors"
+config_filename: "snap/blocks.{layer}.hook_resid_post/cfg.json"
+# Snap-loss variant of the Matryoshka SAE (experimental, see
+# https://www.lesswrong.com/posts/qQ5RjRj7krhF693JL — addresses "feature hedging").
+# Matryoshka-trained with nested widths [128, 512, 2048, 8192, 32768].
+# Despite the repo name ("batch-topk"), the saved checkpoint is JumpReLU:
+# state_dict has per-feature threshold[d_hidden], and cfg.json architecture="jumprelu".
+# Training used BatchTopK with K=40 as sparsity constraint; at inference the
+# calibrated threshold vector replaces TopK (standard SAE-lens conversion).
+# cfg.json: apply_b_dec_to_input=true → matches default center_input=true.
+available_layers: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24]
+d_model: 2304
+d_hidden: 32768
+file_format: "safetensors"
+hook_point: "resid_post"
+model: "../models/gemma2_2b.yaml"

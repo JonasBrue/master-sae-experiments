@@ -1,0 +1,2459 @@
+Experiment: EXP-124: Llama-3.2-1B MLP L9 + MMLU-Pro CS
+Command: uv run python -m sae_experiments --sae configs/saes/eleutherai_llama32_1b_131k_mlp.yaml --layer 9 --benchmark configs/benchmarks/mmlu_pro_cs.yaml --method sae --output-dir results --set causal.min_p_correct=0.15 --set causal.max_p_correct=0.45
+Timeout: 14400s (4h 0m)
+Started: 2026-03-21T08:31:43.662514
+======================================================================
+
+Experiment: llama32_1b + EleutherAI TopK K32 131k MLP (Llama-3.2-1B) + MMLU-Pro Computer Science
+Method: SAE
+Output dir: results
+Loading model: meta-llama/Llama-3.2-1B-Instruct...
+
+Loading weights:   0%|          | 0/146 [00:00<?, ?it/s]
+Loading weights:   1%|          | 1/146 [00:00<00:00, 12557.80it/s, Materializing param=model.embed_tokens.weight]
+Loading weights:   1%|          | 1/146 [00:00<00:00, 6523.02it/s, Materializing param=model.embed_tokens.weight] 
+Loading weights:   1%|▏         | 2/146 [00:00<00:17,  8.02it/s, Materializing param=model.embed_tokens.weight]  
+Loading weights:   1%|▏         | 2/146 [00:00<00:17,  8.02it/s, Materializing param=model.layers.0.input_layernorm.weight]
+Loading weights:   1%|▏         | 2/146 [00:00<00:17,  8.02it/s, Materializing param=model.layers.0.input_layernorm.weight]
+Loading weights:   2%|▏         | 3/146 [00:02<02:47,  1.17s/it, Materializing param=model.layers.0.input_layernorm.weight]
+Loading weights:   2%|▏         | 3/146 [00:02<02:47,  1.17s/it, Materializing param=model.layers.0.mlp.down_proj.weight]  
+Loading weights:   2%|▏         | 3/146 [00:02<02:47,  1.17s/it, Materializing param=model.layers.0.mlp.down_proj.weight]
+Loading weights:   3%|▎         | 4/146 [00:02<02:46,  1.17s/it, Materializing param=model.layers.0.mlp.gate_proj.weight]
+Loading weights:   3%|▎         | 4/146 [00:02<02:46,  1.17s/it, Materializing param=model.layers.0.mlp.gate_proj.weight]
+Loading weights:   3%|▎         | 5/146 [00:02<02:45,  1.17s/it, Materializing param=model.layers.0.mlp.up_proj.weight]  
+Loading weights:   3%|▎         | 5/146 [00:02<02:45,  1.17s/it, Materializing param=model.layers.0.mlp.up_proj.weight]
+Loading weights:   4%|▍         | 6/146 [00:02<02:44,  1.17s/it, Materializing param=model.layers.0.post_attention_layernorm.weight]
+Loading weights:   4%|▍         | 6/146 [00:02<02:44,  1.17s/it, Materializing param=model.layers.0.post_attention_layernorm.weight]
+Loading weights:   5%|▍         | 7/146 [00:02<02:43,  1.17s/it, Materializing param=model.layers.0.self_attn.k_proj.weight]        
+Loading weights:   5%|▍         | 7/146 [00:02<02:43,  1.17s/it, Materializing param=model.layers.0.self_attn.k_proj.weight]
+Loading weights:   5%|▌         | 8/146 [00:02<02:41,  1.17s/it, Materializing param=model.layers.0.self_attn.o_proj.weight]
+Loading weights:   5%|▌         | 8/146 [00:02<02:41,  1.17s/it, Materializing param=model.layers.0.self_attn.o_proj.weight]
+Loading weights:   6%|▌         | 9/146 [00:02<02:40,  1.17s/it, Materializing param=model.layers.0.self_attn.q_proj.weight]
+Loading weights:   6%|▌         | 9/146 [00:02<02:40,  1.17s/it, Materializing param=model.layers.0.self_attn.q_proj.weight]
+Loading weights:   7%|▋         | 10/146 [00:02<02:39,  1.17s/it, Materializing param=model.layers.0.self_attn.v_proj.weight]
+Loading weights:   7%|▋         | 10/146 [00:02<02:39,  1.17s/it, Materializing param=model.layers.0.self_attn.v_proj.weight]
+Loading weights:   8%|▊         | 11/146 [00:02<02:38,  1.17s/it, Materializing param=model.layers.1.input_layernorm.weight] 
+Loading weights:   8%|▊         | 11/146 [00:02<02:38,  1.17s/it, Materializing param=model.layers.1.input_layernorm.weight]
+Loading weights:   8%|▊         | 12/146 [00:02<02:37,  1.17s/it, Materializing param=model.layers.1.mlp.down_proj.weight]  
+Loading weights:   8%|▊         | 12/146 [00:02<02:37,  1.17s/it, Materializing param=model.layers.1.mlp.down_proj.weight]
+Loading weights:   9%|▉         | 13/146 [00:02<02:36,  1.17s/it, Materializing param=model.layers.1.mlp.gate_proj.weight]
+Loading weights:   9%|▉         | 13/146 [00:02<02:36,  1.17s/it, Materializing param=model.layers.1.mlp.gate_proj.weight]
+Loading weights:  10%|▉         | 14/146 [00:02<02:34,  1.17s/it, Materializing param=model.layers.1.mlp.up_proj.weight]  
+Loading weights:  10%|▉         | 14/146 [00:02<02:34,  1.17s/it, Materializing param=model.layers.1.mlp.up_proj.weight]
+Loading weights:  10%|█         | 15/146 [00:02<02:33,  1.17s/it, Materializing param=model.layers.1.post_attention_layernorm.weight]
+Loading weights:  10%|█         | 15/146 [00:02<02:33,  1.17s/it, Materializing param=model.layers.1.post_attention_layernorm.weight]
+Loading weights:  11%|█         | 16/146 [00:02<02:32,  1.17s/it, Materializing param=model.layers.1.self_attn.k_proj.weight]        
+Loading weights:  11%|█         | 16/146 [00:02<02:32,  1.17s/it, Materializing param=model.layers.1.self_attn.k_proj.weight]
+Loading weights:  12%|█▏        | 17/146 [00:02<02:31,  1.17s/it, Materializing param=model.layers.1.self_attn.o_proj.weight]
+Loading weights:  12%|█▏        | 17/146 [00:02<02:31,  1.17s/it, Materializing param=model.layers.1.self_attn.o_proj.weight]
+Loading weights:  12%|█▏        | 18/146 [00:02<02:30,  1.17s/it, Materializing param=model.layers.1.self_attn.q_proj.weight]
+Loading weights:  12%|█▏        | 18/146 [00:02<02:30,  1.17s/it, Materializing param=model.layers.1.self_attn.q_proj.weight]
+Loading weights:  13%|█▎        | 19/146 [00:02<02:29,  1.17s/it, Materializing param=model.layers.1.self_attn.v_proj.weight]
+Loading weights:  13%|█▎        | 19/146 [00:02<02:29,  1.17s/it, Materializing param=model.layers.1.self_attn.v_proj.weight]
+Loading weights:  14%|█▎        | 20/146 [00:02<02:27,  1.17s/it, Materializing param=model.layers.2.input_layernorm.weight] 
+Loading weights:  14%|█▎        | 20/146 [00:02<02:27,  1.17s/it, Materializing param=model.layers.2.input_layernorm.weight]
+Loading weights:  14%|█▍        | 21/146 [00:02<02:26,  1.17s/it, Materializing param=model.layers.2.mlp.down_proj.weight]  
+Loading weights:  14%|█▍        | 21/146 [00:02<02:26,  1.17s/it, Materializing param=model.layers.2.mlp.down_proj.weight]
+Loading weights:  15%|█▌        | 22/146 [00:02<02:25,  1.17s/it, Materializing param=model.layers.2.mlp.gate_proj.weight]
+Loading weights:  15%|█▌        | 22/146 [00:02<02:25,  1.17s/it, Materializing param=model.layers.2.mlp.gate_proj.weight]
+Loading weights:  16%|█▌        | 23/146 [00:02<02:24,  1.17s/it, Materializing param=model.layers.2.mlp.up_proj.weight]  
+Loading weights:  16%|█▌        | 23/146 [00:02<02:24,  1.17s/it, Materializing param=model.layers.2.mlp.up_proj.weight]
+Loading weights:  16%|█▋        | 24/146 [00:02<02:23,  1.17s/it, Materializing param=model.layers.2.post_attention_layernorm.weight]
+Loading weights:  16%|█▋        | 24/146 [00:02<02:23,  1.17s/it, Materializing param=model.layers.2.post_attention_layernorm.weight]
+Loading weights:  17%|█▋        | 25/146 [00:02<02:21,  1.17s/it, Materializing param=model.layers.2.self_attn.k_proj.weight]        
+Loading weights:  17%|█▋        | 25/146 [00:02<02:21,  1.17s/it, Materializing param=model.layers.2.self_attn.k_proj.weight]
+Loading weights:  18%|█▊        | 26/146 [00:02<02:20,  1.17s/it, Materializing param=model.layers.2.self_attn.o_proj.weight]
+Loading weights:  18%|█▊        | 26/146 [00:02<02:20,  1.17s/it, Materializing param=model.layers.2.self_attn.o_proj.weight]
+Loading weights:  18%|█▊        | 27/146 [00:02<02:19,  1.17s/it, Materializing param=model.layers.2.self_attn.q_proj.weight]
+Loading weights:  18%|█▊        | 27/146 [00:02<02:19,  1.17s/it, Materializing param=model.layers.2.self_attn.q_proj.weight]
+Loading weights:  19%|█▉        | 28/146 [00:02<02:18,  1.17s/it, Materializing param=model.layers.2.self_attn.v_proj.weight]
+Loading weights:  19%|█▉        | 28/146 [00:02<02:18,  1.17s/it, Materializing param=model.layers.2.self_attn.v_proj.weight]
+Loading weights:  20%|█▉        | 29/146 [00:02<02:17,  1.17s/it, Materializing param=model.layers.3.input_layernorm.weight] 
+Loading weights:  20%|█▉        | 29/146 [00:02<02:17,  1.17s/it, Materializing param=model.layers.3.input_layernorm.weight]
+Loading weights:  21%|██        | 30/146 [00:02<02:16,  1.17s/it, Materializing param=model.layers.3.mlp.down_proj.weight]  
+Loading weights:  21%|██        | 30/146 [00:02<02:16,  1.17s/it, Materializing param=model.layers.3.mlp.down_proj.weight]
+Loading weights:  21%|██        | 31/146 [00:02<02:14,  1.17s/it, Materializing param=model.layers.3.mlp.gate_proj.weight]
+Loading weights:  21%|██        | 31/146 [00:02<02:14,  1.17s/it, Materializing param=model.layers.3.mlp.gate_proj.weight]
+Loading weights:  22%|██▏       | 32/146 [00:02<02:13,  1.17s/it, Materializing param=model.layers.3.mlp.up_proj.weight]  
+Loading weights:  22%|██▏       | 32/146 [00:02<02:13,  1.17s/it, Materializing param=model.layers.3.mlp.up_proj.weight]
+Loading weights:  23%|██▎       | 33/146 [00:02<02:12,  1.17s/it, Materializing param=model.layers.3.post_attention_layernorm.weight]
+Loading weights:  23%|██▎       | 33/146 [00:02<02:12,  1.17s/it, Materializing param=model.layers.3.post_attention_layernorm.weight]
+Loading weights:  23%|██▎       | 34/146 [00:02<02:11,  1.17s/it, Materializing param=model.layers.3.self_attn.k_proj.weight]        
+Loading weights:  23%|██▎       | 34/146 [00:02<02:11,  1.17s/it, Materializing param=model.layers.3.self_attn.k_proj.weight]
+Loading weights:  24%|██▍       | 35/146 [00:02<02:10,  1.17s/it, Materializing param=model.layers.3.self_attn.o_proj.weight]
+Loading weights:  24%|██▍       | 35/146 [00:02<02:10,  1.17s/it, Materializing param=model.layers.3.self_attn.o_proj.weight]
+Loading weights:  25%|██▍       | 36/146 [00:02<02:09,  1.17s/it, Materializing param=model.layers.3.self_attn.q_proj.weight]
+Loading weights:  25%|██▍       | 36/146 [00:02<02:09,  1.17s/it, Materializing param=model.layers.3.self_attn.q_proj.weight]
+Loading weights:  25%|██▌       | 37/146 [00:02<02:07,  1.17s/it, Materializing param=model.layers.3.self_attn.v_proj.weight]
+Loading weights:  25%|██▌       | 37/146 [00:02<02:07,  1.17s/it, Materializing param=model.layers.3.self_attn.v_proj.weight]
+Loading weights:  26%|██▌       | 38/146 [00:02<02:06,  1.17s/it, Materializing param=model.layers.4.input_layernorm.weight] 
+Loading weights:  26%|██▌       | 38/146 [00:02<02:06,  1.17s/it, Materializing param=model.layers.4.input_layernorm.weight]
+Loading weights:  27%|██▋       | 39/146 [00:02<02:05,  1.17s/it, Materializing param=model.layers.4.mlp.down_proj.weight]  
+Loading weights:  27%|██▋       | 39/146 [00:02<02:05,  1.17s/it, Materializing param=model.layers.4.mlp.down_proj.weight]
+Loading weights:  27%|██▋       | 40/146 [00:02<02:04,  1.17s/it, Materializing param=model.layers.4.mlp.gate_proj.weight]
+Loading weights:  27%|██▋       | 40/146 [00:02<02:04,  1.17s/it, Materializing param=model.layers.4.mlp.gate_proj.weight]
+Loading weights:  28%|██▊       | 41/146 [00:02<02:03,  1.17s/it, Materializing param=model.layers.4.mlp.up_proj.weight]  
+Loading weights:  28%|██▊       | 41/146 [00:02<02:03,  1.17s/it, Materializing param=model.layers.4.mlp.up_proj.weight]
+Loading weights:  29%|██▉       | 42/146 [00:02<02:02,  1.17s/it, Materializing param=model.layers.4.post_attention_layernorm.weight]
+Loading weights:  29%|██▉       | 42/146 [00:02<02:02,  1.17s/it, Materializing param=model.layers.4.post_attention_layernorm.weight]
+Loading weights:  29%|██▉       | 43/146 [00:02<02:00,  1.17s/it, Materializing param=model.layers.4.self_attn.k_proj.weight]        
+Loading weights:  29%|██▉       | 43/146 [00:02<02:00,  1.17s/it, Materializing param=model.layers.4.self_attn.k_proj.weight]
+Loading weights:  30%|███       | 44/146 [00:02<01:59,  1.17s/it, Materializing param=model.layers.4.self_attn.o_proj.weight]
+Loading weights:  30%|███       | 44/146 [00:02<01:59,  1.17s/it, Materializing param=model.layers.4.self_attn.o_proj.weight]
+Loading weights:  31%|███       | 45/146 [00:02<01:58,  1.17s/it, Materializing param=model.layers.4.self_attn.q_proj.weight]
+Loading weights:  31%|███       | 45/146 [00:02<01:58,  1.17s/it, Materializing param=model.layers.4.self_attn.q_proj.weight]
+Loading weights:  32%|███▏      | 46/146 [00:02<01:57,  1.17s/it, Materializing param=model.layers.4.self_attn.v_proj.weight]
+Loading weights:  32%|███▏      | 46/146 [00:02<01:57,  1.17s/it, Materializing param=model.layers.4.self_attn.v_proj.weight]
+Loading weights:  32%|███▏      | 47/146 [00:02<01:56,  1.17s/it, Materializing param=model.layers.5.input_layernorm.weight] 
+Loading weights:  32%|███▏      | 47/146 [00:02<01:56,  1.17s/it, Materializing param=model.layers.5.input_layernorm.weight]
+Loading weights:  33%|███▎      | 48/146 [00:02<01:54,  1.17s/it, Materializing param=model.layers.5.mlp.down_proj.weight]  
+Loading weights:  33%|███▎      | 48/146 [00:02<01:54,  1.17s/it, Materializing param=model.layers.5.mlp.down_proj.weight]
+Loading weights:  34%|███▎      | 49/146 [00:02<01:53,  1.17s/it, Materializing param=model.layers.5.mlp.gate_proj.weight]
+Loading weights:  34%|███▎      | 49/146 [00:02<01:53,  1.17s/it, Materializing param=model.layers.5.mlp.gate_proj.weight]
+Loading weights:  34%|███▍      | 50/146 [00:02<01:52,  1.17s/it, Materializing param=model.layers.5.mlp.up_proj.weight]  
+Loading weights:  34%|███▍      | 50/146 [00:02<01:52,  1.17s/it, Materializing param=model.layers.5.mlp.up_proj.weight]
+Loading weights:  35%|███▍      | 51/146 [00:02<01:51,  1.17s/it, Materializing param=model.layers.5.post_attention_layernorm.weight]
+Loading weights:  35%|███▍      | 51/146 [00:02<01:51,  1.17s/it, Materializing param=model.layers.5.post_attention_layernorm.weight]
+Loading weights:  36%|███▌      | 52/146 [00:02<01:50,  1.17s/it, Materializing param=model.layers.5.self_attn.k_proj.weight]        
+Loading weights:  36%|███▌      | 52/146 [00:02<01:50,  1.17s/it, Materializing param=model.layers.5.self_attn.k_proj.weight]
+Loading weights:  36%|███▋      | 53/146 [00:02<01:49,  1.17s/it, Materializing param=model.layers.5.self_attn.o_proj.weight]
+Loading weights:  36%|███▋      | 53/146 [00:02<01:49,  1.17s/it, Materializing param=model.layers.5.self_attn.o_proj.weight]
+Loading weights:  37%|███▋      | 54/146 [00:02<01:47,  1.17s/it, Materializing param=model.layers.5.self_attn.q_proj.weight]
+Loading weights:  37%|███▋      | 54/146 [00:02<01:47,  1.17s/it, Materializing param=model.layers.5.self_attn.q_proj.weight]
+Loading weights:  38%|███▊      | 55/146 [00:02<01:46,  1.17s/it, Materializing param=model.layers.5.self_attn.v_proj.weight]
+Loading weights:  38%|███▊      | 55/146 [00:02<01:46,  1.17s/it, Materializing param=model.layers.5.self_attn.v_proj.weight]
+Loading weights:  38%|███▊      | 56/146 [00:02<01:45,  1.17s/it, Materializing param=model.layers.6.input_layernorm.weight] 
+Loading weights:  38%|███▊      | 56/146 [00:02<01:45,  1.17s/it, Materializing param=model.layers.6.input_layernorm.weight]
+Loading weights:  39%|███▉      | 57/146 [00:02<01:44,  1.17s/it, Materializing param=model.layers.6.mlp.down_proj.weight]  
+Loading weights:  39%|███▉      | 57/146 [00:02<01:44,  1.17s/it, Materializing param=model.layers.6.mlp.down_proj.weight]
+Loading weights:  40%|███▉      | 58/146 [00:02<01:43,  1.17s/it, Materializing param=model.layers.6.mlp.gate_proj.weight]
+Loading weights:  40%|███▉      | 58/146 [00:02<01:43,  1.17s/it, Materializing param=model.layers.6.mlp.gate_proj.weight]
+Loading weights:  40%|████      | 59/146 [00:02<01:42,  1.17s/it, Materializing param=model.layers.6.mlp.up_proj.weight]  
+Loading weights:  40%|████      | 59/146 [00:02<01:42,  1.17s/it, Materializing param=model.layers.6.mlp.up_proj.weight]
+Loading weights:  41%|████      | 60/146 [00:02<01:40,  1.17s/it, Materializing param=model.layers.6.post_attention_layernorm.weight]
+Loading weights:  41%|████      | 60/146 [00:02<01:40,  1.17s/it, Materializing param=model.layers.6.post_attention_layernorm.weight]
+Loading weights:  42%|████▏     | 61/146 [00:02<01:39,  1.17s/it, Materializing param=model.layers.6.self_attn.k_proj.weight]        
+Loading weights:  42%|████▏     | 61/146 [00:02<01:39,  1.17s/it, Materializing param=model.layers.6.self_attn.k_proj.weight]
+Loading weights:  42%|████▏     | 62/146 [00:02<01:38,  1.17s/it, Materializing param=model.layers.6.self_attn.o_proj.weight]
+Loading weights:  42%|████▏     | 62/146 [00:02<01:38,  1.17s/it, Materializing param=model.layers.6.self_attn.o_proj.weight]
+Loading weights:  43%|████▎     | 63/146 [00:02<01:37,  1.17s/it, Materializing param=model.layers.6.self_attn.q_proj.weight]
+Loading weights:  43%|████▎     | 63/146 [00:02<01:37,  1.17s/it, Materializing param=model.layers.6.self_attn.q_proj.weight]
+Loading weights:  44%|████▍     | 64/146 [00:02<01:36,  1.17s/it, Materializing param=model.layers.6.self_attn.v_proj.weight]
+Loading weights:  44%|████▍     | 64/146 [00:02<01:36,  1.17s/it, Materializing param=model.layers.6.self_attn.v_proj.weight]
+Loading weights:  45%|████▍     | 65/146 [00:02<01:35,  1.17s/it, Materializing param=model.layers.7.input_layernorm.weight] 
+Loading weights:  45%|████▍     | 65/146 [00:02<01:35,  1.17s/it, Materializing param=model.layers.7.input_layernorm.weight]
+Loading weights:  45%|████▌     | 66/146 [00:02<01:33,  1.17s/it, Materializing param=model.layers.7.mlp.down_proj.weight]  
+Loading weights:  45%|████▌     | 66/146 [00:02<01:33,  1.17s/it, Materializing param=model.layers.7.mlp.down_proj.weight]
+Loading weights:  46%|████▌     | 67/146 [00:02<01:32,  1.17s/it, Materializing param=model.layers.7.mlp.gate_proj.weight]
+Loading weights:  46%|████▌     | 67/146 [00:02<01:32,  1.17s/it, Materializing param=model.layers.7.mlp.gate_proj.weight]
+Loading weights:  47%|████▋     | 68/146 [00:02<01:31,  1.17s/it, Materializing param=model.layers.7.mlp.up_proj.weight]  
+Loading weights:  47%|████▋     | 68/146 [00:02<01:31,  1.17s/it, Materializing param=model.layers.7.mlp.up_proj.weight]
+Loading weights:  47%|████▋     | 69/146 [00:02<01:30,  1.17s/it, Materializing param=model.layers.7.post_attention_layernorm.weight]
+Loading weights:  47%|████▋     | 69/146 [00:02<01:30,  1.17s/it, Materializing param=model.layers.7.post_attention_layernorm.weight]
+Loading weights:  48%|████▊     | 70/146 [00:02<01:29,  1.17s/it, Materializing param=model.layers.7.self_attn.k_proj.weight]        
+Loading weights:  48%|████▊     | 70/146 [00:02<01:29,  1.17s/it, Materializing param=model.layers.7.self_attn.k_proj.weight]
+Loading weights:  49%|████▊     | 71/146 [00:02<01:28,  1.17s/it, Materializing param=model.layers.7.self_attn.o_proj.weight]
+Loading weights:  49%|████▊     | 71/146 [00:02<01:28,  1.17s/it, Materializing param=model.layers.7.self_attn.o_proj.weight]
+Loading weights:  49%|████▉     | 72/146 [00:02<01:26,  1.17s/it, Materializing param=model.layers.7.self_attn.q_proj.weight]
+Loading weights:  49%|████▉     | 72/146 [00:02<01:26,  1.17s/it, Materializing param=model.layers.7.self_attn.q_proj.weight]
+Loading weights:  50%|█████     | 73/146 [00:02<01:25,  1.17s/it, Materializing param=model.layers.7.self_attn.v_proj.weight]
+Loading weights:  50%|█████     | 73/146 [00:02<01:25,  1.17s/it, Materializing param=model.layers.7.self_attn.v_proj.weight]
+Loading weights:  51%|█████     | 74/146 [00:02<01:24,  1.17s/it, Materializing param=model.layers.8.input_layernorm.weight] 
+Loading weights:  51%|█████     | 74/146 [00:02<01:24,  1.17s/it, Materializing param=model.layers.8.input_layernorm.weight]
+Loading weights:  51%|█████▏    | 75/146 [00:02<01:23,  1.17s/it, Materializing param=model.layers.8.mlp.down_proj.weight]  
+Loading weights:  51%|█████▏    | 75/146 [00:02<01:23,  1.17s/it, Materializing param=model.layers.8.mlp.down_proj.weight]
+Loading weights:  52%|█████▏    | 76/146 [00:02<01:22,  1.17s/it, Materializing param=model.layers.8.mlp.gate_proj.weight]
+Loading weights:  52%|█████▏    | 76/146 [00:02<01:22,  1.17s/it, Materializing param=model.layers.8.mlp.gate_proj.weight]
+Loading weights:  53%|█████▎    | 77/146 [00:02<01:20,  1.17s/it, Materializing param=model.layers.8.mlp.up_proj.weight]  
+Loading weights:  53%|█████▎    | 77/146 [00:02<01:20,  1.17s/it, Materializing param=model.layers.8.mlp.up_proj.weight]
+Loading weights:  53%|█████▎    | 78/146 [00:02<01:19,  1.17s/it, Materializing param=model.layers.8.post_attention_layernorm.weight]
+Loading weights:  53%|█████▎    | 78/146 [00:02<01:19,  1.17s/it, Materializing param=model.layers.8.post_attention_layernorm.weight]
+Loading weights:  54%|█████▍    | 79/146 [00:02<01:18,  1.17s/it, Materializing param=model.layers.8.self_attn.k_proj.weight]        
+Loading weights:  54%|█████▍    | 79/146 [00:02<01:18,  1.17s/it, Materializing param=model.layers.8.self_attn.k_proj.weight]
+Loading weights:  55%|█████▍    | 80/146 [00:02<01:17,  1.17s/it, Materializing param=model.layers.8.self_attn.o_proj.weight]
+Loading weights:  55%|█████▍    | 80/146 [00:02<01:17,  1.17s/it, Materializing param=model.layers.8.self_attn.o_proj.weight]
+Loading weights:  55%|█████▌    | 81/146 [00:02<01:16,  1.17s/it, Materializing param=model.layers.8.self_attn.q_proj.weight]
+Loading weights:  55%|█████▌    | 81/146 [00:02<01:16,  1.17s/it, Materializing param=model.layers.8.self_attn.q_proj.weight]
+Loading weights:  56%|█████▌    | 82/146 [00:02<01:15,  1.17s/it, Materializing param=model.layers.8.self_attn.v_proj.weight]
+Loading weights:  56%|█████▌    | 82/146 [00:02<01:15,  1.17s/it, Materializing param=model.layers.8.self_attn.v_proj.weight]
+Loading weights:  57%|█████▋    | 83/146 [00:02<01:13,  1.17s/it, Materializing param=model.layers.9.input_layernorm.weight] 
+Loading weights:  57%|█████▋    | 83/146 [00:02<01:13,  1.17s/it, Materializing param=model.layers.9.input_layernorm.weight]
+Loading weights:  58%|█████▊    | 84/146 [00:02<01:12,  1.17s/it, Materializing param=model.layers.9.mlp.down_proj.weight]  
+Loading weights:  58%|█████▊    | 84/146 [00:02<01:12,  1.17s/it, Materializing param=model.layers.9.mlp.down_proj.weight]
+Loading weights:  58%|█████▊    | 85/146 [00:02<01:11,  1.17s/it, Materializing param=model.layers.9.mlp.gate_proj.weight]
+Loading weights:  58%|█████▊    | 85/146 [00:02<01:11,  1.17s/it, Materializing param=model.layers.9.mlp.gate_proj.weight]
+Loading weights:  59%|█████▉    | 86/146 [00:02<01:10,  1.17s/it, Materializing param=model.layers.9.mlp.up_proj.weight]  
+Loading weights:  59%|█████▉    | 86/146 [00:02<01:10,  1.17s/it, Materializing param=model.layers.9.mlp.up_proj.weight]
+Loading weights:  60%|█████▉    | 87/146 [00:02<01:09,  1.17s/it, Materializing param=model.layers.9.post_attention_layernorm.weight]
+Loading weights:  60%|█████▉    | 87/146 [00:02<01:09,  1.17s/it, Materializing param=model.layers.9.post_attention_layernorm.weight]
+Loading weights:  60%|██████    | 88/146 [00:02<01:08,  1.17s/it, Materializing param=model.layers.9.self_attn.k_proj.weight]        
+Loading weights:  60%|██████    | 88/146 [00:02<01:08,  1.17s/it, Materializing param=model.layers.9.self_attn.k_proj.weight]
+Loading weights:  61%|██████    | 89/146 [00:02<01:06,  1.17s/it, Materializing param=model.layers.9.self_attn.o_proj.weight]
+Loading weights:  61%|██████    | 89/146 [00:02<01:06,  1.17s/it, Materializing param=model.layers.9.self_attn.o_proj.weight]
+Loading weights:  62%|██████▏   | 90/146 [00:02<01:05,  1.17s/it, Materializing param=model.layers.9.self_attn.q_proj.weight]
+Loading weights:  62%|██████▏   | 90/146 [00:02<01:05,  1.17s/it, Materializing param=model.layers.9.self_attn.q_proj.weight]
+Loading weights:  62%|██████▏   | 91/146 [00:02<01:04,  1.17s/it, Materializing param=model.layers.9.self_attn.v_proj.weight]
+Loading weights:  62%|██████▏   | 91/146 [00:02<01:04,  1.17s/it, Materializing param=model.layers.9.self_attn.v_proj.weight]
+Loading weights:  63%|██████▎   | 92/146 [00:02<01:03,  1.17s/it, Materializing param=model.layers.10.input_layernorm.weight]
+Loading weights:  63%|██████▎   | 92/146 [00:02<01:03,  1.17s/it, Materializing param=model.layers.10.input_layernorm.weight]
+Loading weights:  64%|██████▎   | 93/146 [00:02<01:02,  1.17s/it, Materializing param=model.layers.10.mlp.down_proj.weight]  
+Loading weights:  64%|██████▎   | 93/146 [00:02<01:02,  1.17s/it, Materializing param=model.layers.10.mlp.down_proj.weight]
+Loading weights:  64%|██████▍   | 94/146 [00:02<01:01,  1.17s/it, Materializing param=model.layers.10.mlp.gate_proj.weight]
+Loading weights:  64%|██████▍   | 94/146 [00:02<01:01,  1.17s/it, Materializing param=model.layers.10.mlp.gate_proj.weight]
+Loading weights:  65%|██████▌   | 95/146 [00:02<00:59,  1.17s/it, Materializing param=model.layers.10.mlp.up_proj.weight]  
+Loading weights:  65%|██████▌   | 95/146 [00:02<00:59,  1.17s/it, Materializing param=model.layers.10.mlp.up_proj.weight]
+Loading weights:  66%|██████▌   | 96/146 [00:02<00:58,  1.17s/it, Materializing param=model.layers.10.post_attention_layernorm.weight]
+Loading weights:  66%|██████▌   | 96/146 [00:02<00:58,  1.17s/it, Materializing param=model.layers.10.post_attention_layernorm.weight]
+Loading weights:  66%|██████▋   | 97/146 [00:02<00:57,  1.17s/it, Materializing param=model.layers.10.self_attn.k_proj.weight]        
+Loading weights:  66%|██████▋   | 97/146 [00:02<00:57,  1.17s/it, Materializing param=model.layers.10.self_attn.k_proj.weight]
+Loading weights:  67%|██████▋   | 98/146 [00:02<00:56,  1.17s/it, Materializing param=model.layers.10.self_attn.o_proj.weight]
+Loading weights:  67%|██████▋   | 98/146 [00:02<00:56,  1.17s/it, Materializing param=model.layers.10.self_attn.o_proj.weight]
+Loading weights:  68%|██████▊   | 99/146 [00:02<00:55,  1.17s/it, Materializing param=model.layers.10.self_attn.q_proj.weight]
+Loading weights:  68%|██████▊   | 99/146 [00:02<00:55,  1.17s/it, Materializing param=model.layers.10.self_attn.q_proj.weight]
+Loading weights:  68%|██████▊   | 100/146 [00:02<00:53,  1.17s/it, Materializing param=model.layers.10.self_attn.v_proj.weight]
+Loading weights:  68%|██████▊   | 100/146 [00:02<00:53,  1.17s/it, Materializing param=model.layers.10.self_attn.v_proj.weight]
+Loading weights:  69%|██████▉   | 101/146 [00:02<00:52,  1.17s/it, Materializing param=model.layers.11.input_layernorm.weight] 
+Loading weights:  69%|██████▉   | 101/146 [00:02<00:52,  1.17s/it, Materializing param=model.layers.11.input_layernorm.weight]
+Loading weights:  70%|██████▉   | 102/146 [00:02<00:51,  1.17s/it, Materializing param=model.layers.11.mlp.down_proj.weight]  
+Loading weights:  70%|██████▉   | 102/146 [00:02<00:51,  1.17s/it, Materializing param=model.layers.11.mlp.down_proj.weight]
+Loading weights:  71%|███████   | 103/146 [00:02<00:50,  1.17s/it, Materializing param=model.layers.11.mlp.gate_proj.weight]
+Loading weights:  71%|███████   | 103/146 [00:02<00:50,  1.17s/it, Materializing param=model.layers.11.mlp.gate_proj.weight]
+Loading weights:  71%|███████   | 104/146 [00:02<00:49,  1.17s/it, Materializing param=model.layers.11.mlp.up_proj.weight]  
+Loading weights:  71%|███████   | 104/146 [00:02<00:49,  1.17s/it, Materializing param=model.layers.11.mlp.up_proj.weight]
+Loading weights:  72%|███████▏  | 105/146 [00:02<00:48,  1.17s/it, Materializing param=model.layers.11.post_attention_layernorm.weight]
+Loading weights:  72%|███████▏  | 105/146 [00:02<00:48,  1.17s/it, Materializing param=model.layers.11.post_attention_layernorm.weight]
+Loading weights:  73%|███████▎  | 106/146 [00:02<00:46,  1.17s/it, Materializing param=model.layers.11.self_attn.k_proj.weight]        
+Loading weights:  73%|███████▎  | 106/146 [00:02<00:46,  1.17s/it, Materializing param=model.layers.11.self_attn.k_proj.weight]
+Loading weights:  73%|███████▎  | 107/146 [00:02<00:45,  1.17s/it, Materializing param=model.layers.11.self_attn.o_proj.weight]
+Loading weights:  73%|███████▎  | 107/146 [00:02<00:45,  1.17s/it, Materializing param=model.layers.11.self_attn.o_proj.weight]
+Loading weights:  74%|███████▍  | 108/146 [00:02<00:44,  1.17s/it, Materializing param=model.layers.11.self_attn.q_proj.weight]
+Loading weights:  74%|███████▍  | 108/146 [00:02<00:44,  1.17s/it, Materializing param=model.layers.11.self_attn.q_proj.weight]
+Loading weights:  75%|███████▍  | 109/146 [00:02<00:43,  1.17s/it, Materializing param=model.layers.11.self_attn.v_proj.weight]
+Loading weights:  75%|███████▍  | 109/146 [00:02<00:43,  1.17s/it, Materializing param=model.layers.11.self_attn.v_proj.weight]
+Loading weights:  75%|███████▌  | 110/146 [00:02<00:42,  1.17s/it, Materializing param=model.layers.12.input_layernorm.weight] 
+Loading weights:  75%|███████▌  | 110/146 [00:02<00:42,  1.17s/it, Materializing param=model.layers.12.input_layernorm.weight]
+Loading weights:  76%|███████▌  | 111/146 [00:02<00:41,  1.17s/it, Materializing param=model.layers.12.mlp.down_proj.weight]  
+Loading weights:  76%|███████▌  | 111/146 [00:02<00:41,  1.17s/it, Materializing param=model.layers.12.mlp.down_proj.weight]
+Loading weights:  77%|███████▋  | 112/146 [00:02<00:39,  1.17s/it, Materializing param=model.layers.12.mlp.gate_proj.weight]
+Loading weights:  77%|███████▋  | 112/146 [00:02<00:39,  1.17s/it, Materializing param=model.layers.12.mlp.gate_proj.weight]
+Loading weights:  77%|███████▋  | 113/146 [00:02<00:38,  1.17s/it, Materializing param=model.layers.12.mlp.up_proj.weight]  
+Loading weights:  77%|███████▋  | 113/146 [00:02<00:38,  1.17s/it, Materializing param=model.layers.12.mlp.up_proj.weight]
+Loading weights:  78%|███████▊  | 114/146 [00:02<00:37,  1.17s/it, Materializing param=model.layers.12.post_attention_layernorm.weight]
+Loading weights:  78%|███████▊  | 114/146 [00:02<00:37,  1.17s/it, Materializing param=model.layers.12.post_attention_layernorm.weight]
+Loading weights:  79%|███████▉  | 115/146 [00:02<00:36,  1.17s/it, Materializing param=model.layers.12.self_attn.k_proj.weight]        
+Loading weights:  79%|███████▉  | 115/146 [00:02<00:36,  1.17s/it, Materializing param=model.layers.12.self_attn.k_proj.weight]
+Loading weights:  79%|███████▉  | 116/146 [00:02<00:35,  1.17s/it, Materializing param=model.layers.12.self_attn.o_proj.weight]
+Loading weights:  79%|███████▉  | 116/146 [00:02<00:35,  1.17s/it, Materializing param=model.layers.12.self_attn.o_proj.weight]
+Loading weights:  80%|████████  | 117/146 [00:02<00:34,  1.17s/it, Materializing param=model.layers.12.self_attn.q_proj.weight]
+Loading weights:  80%|████████  | 117/146 [00:02<00:34,  1.17s/it, Materializing param=model.layers.12.self_attn.q_proj.weight]
+Loading weights:  81%|████████  | 118/146 [00:02<00:32,  1.17s/it, Materializing param=model.layers.12.self_attn.v_proj.weight]
+Loading weights:  81%|████████  | 118/146 [00:02<00:32,  1.17s/it, Materializing param=model.layers.12.self_attn.v_proj.weight]
+Loading weights:  82%|████████▏ | 119/146 [00:02<00:31,  1.17s/it, Materializing param=model.layers.13.input_layernorm.weight] 
+Loading weights:  82%|████████▏ | 119/146 [00:02<00:31,  1.17s/it, Materializing param=model.layers.13.input_layernorm.weight]
+Loading weights:  82%|████████▏ | 120/146 [00:02<00:30,  1.17s/it, Materializing param=model.layers.13.mlp.down_proj.weight]  
+Loading weights:  82%|████████▏ | 120/146 [00:02<00:30,  1.17s/it, Materializing param=model.layers.13.mlp.down_proj.weight]
+Loading weights:  83%|████████▎ | 121/146 [00:02<00:29,  1.17s/it, Materializing param=model.layers.13.mlp.gate_proj.weight]
+Loading weights:  83%|████████▎ | 121/146 [00:02<00:29,  1.17s/it, Materializing param=model.layers.13.mlp.gate_proj.weight]
+Loading weights:  84%|████████▎ | 122/146 [00:02<00:28,  1.17s/it, Materializing param=model.layers.13.mlp.up_proj.weight]  
+Loading weights:  84%|████████▎ | 122/146 [00:02<00:28,  1.17s/it, Materializing param=model.layers.13.mlp.up_proj.weight]
+Loading weights:  84%|████████▍ | 123/146 [00:02<00:26,  1.17s/it, Materializing param=model.layers.13.post_attention_layernorm.weight]
+Loading weights:  84%|████████▍ | 123/146 [00:02<00:26,  1.17s/it, Materializing param=model.layers.13.post_attention_layernorm.weight]
+Loading weights:  85%|████████▍ | 124/146 [00:02<00:25,  1.17s/it, Materializing param=model.layers.13.self_attn.k_proj.weight]        
+Loading weights:  85%|████████▍ | 124/146 [00:02<00:25,  1.17s/it, Materializing param=model.layers.13.self_attn.k_proj.weight]
+Loading weights:  86%|████████▌ | 125/146 [00:02<00:24,  1.17s/it, Materializing param=model.layers.13.self_attn.o_proj.weight]
+Loading weights:  86%|████████▌ | 125/146 [00:02<00:24,  1.17s/it, Materializing param=model.layers.13.self_attn.o_proj.weight]
+Loading weights:  86%|████████▋ | 126/146 [00:02<00:23,  1.17s/it, Materializing param=model.layers.13.self_attn.q_proj.weight]
+Loading weights:  86%|████████▋ | 126/146 [00:02<00:23,  1.17s/it, Materializing param=model.layers.13.self_attn.q_proj.weight]
+Loading weights:  87%|████████▋ | 127/146 [00:02<00:22,  1.17s/it, Materializing param=model.layers.13.self_attn.v_proj.weight]
+Loading weights:  87%|████████▋ | 127/146 [00:02<00:22,  1.17s/it, Materializing param=model.layers.13.self_attn.v_proj.weight]
+Loading weights:  88%|████████▊ | 128/146 [00:02<00:21,  1.17s/it, Materializing param=model.layers.14.input_layernorm.weight] 
+Loading weights:  88%|████████▊ | 128/146 [00:02<00:21,  1.17s/it, Materializing param=model.layers.14.input_layernorm.weight]
+Loading weights:  88%|████████▊ | 129/146 [00:02<00:19,  1.17s/it, Materializing param=model.layers.14.mlp.down_proj.weight]  
+Loading weights:  88%|████████▊ | 129/146 [00:02<00:19,  1.17s/it, Materializing param=model.layers.14.mlp.down_proj.weight]
+Loading weights:  89%|████████▉ | 130/146 [00:02<00:18,  1.17s/it, Materializing param=model.layers.14.mlp.gate_proj.weight]
+Loading weights:  89%|████████▉ | 130/146 [00:02<00:18,  1.17s/it, Materializing param=model.layers.14.mlp.gate_proj.weight]
+Loading weights:  90%|████████▉ | 131/146 [00:02<00:17,  1.17s/it, Materializing param=model.layers.14.mlp.up_proj.weight]  
+Loading weights:  90%|████████▉ | 131/146 [00:02<00:17,  1.17s/it, Materializing param=model.layers.14.mlp.up_proj.weight]
+Loading weights:  90%|█████████ | 132/146 [00:02<00:16,  1.17s/it, Materializing param=model.layers.14.post_attention_layernorm.weight]
+Loading weights:  90%|█████████ | 132/146 [00:02<00:16,  1.17s/it, Materializing param=model.layers.14.post_attention_layernorm.weight]
+Loading weights:  91%|█████████ | 133/146 [00:02<00:15,  1.17s/it, Materializing param=model.layers.14.self_attn.k_proj.weight]        
+Loading weights:  91%|█████████ | 133/146 [00:02<00:15,  1.17s/it, Materializing param=model.layers.14.self_attn.k_proj.weight]
+Loading weights:  92%|█████████▏| 134/146 [00:02<00:14,  1.17s/it, Materializing param=model.layers.14.self_attn.o_proj.weight]
+Loading weights:  92%|█████████▏| 134/146 [00:02<00:14,  1.17s/it, Materializing param=model.layers.14.self_attn.o_proj.weight]
+Loading weights:  92%|█████████▏| 135/146 [00:02<00:12,  1.17s/it, Materializing param=model.layers.14.self_attn.q_proj.weight]
+Loading weights:  92%|█████████▏| 135/146 [00:02<00:12,  1.17s/it, Materializing param=model.layers.14.self_attn.q_proj.weight]
+Loading weights:  93%|█████████▎| 136/146 [00:02<00:11,  1.17s/it, Materializing param=model.layers.14.self_attn.v_proj.weight]
+Loading weights:  93%|█████████▎| 136/146 [00:02<00:11,  1.17s/it, Materializing param=model.layers.14.self_attn.v_proj.weight]
+Loading weights:  94%|█████████▍| 137/146 [00:02<00:10,  1.17s/it, Materializing param=model.layers.15.input_layernorm.weight] 
+Loading weights:  94%|█████████▍| 137/146 [00:02<00:10,  1.17s/it, Materializing param=model.layers.15.input_layernorm.weight]
+Loading weights:  95%|█████████▍| 138/146 [00:02<00:09,  1.17s/it, Materializing param=model.layers.15.mlp.down_proj.weight]  
+Loading weights:  95%|█████████▍| 138/146 [00:02<00:09,  1.17s/it, Materializing param=model.layers.15.mlp.down_proj.weight]
+Loading weights:  95%|█████████▌| 139/146 [00:02<00:08,  1.17s/it, Materializing param=model.layers.15.mlp.gate_proj.weight]
+Loading weights:  95%|█████████▌| 139/146 [00:02<00:08,  1.17s/it, Materializing param=model.layers.15.mlp.gate_proj.weight]
+Loading weights:  96%|█████████▌| 140/146 [00:02<00:07,  1.17s/it, Materializing param=model.layers.15.mlp.up_proj.weight]  
+Loading weights:  96%|█████████▌| 140/146 [00:02<00:07,  1.17s/it, Materializing param=model.layers.15.mlp.up_proj.weight]
+Loading weights:  97%|█████████▋| 141/146 [00:02<00:05,  1.17s/it, Materializing param=model.layers.15.post_attention_layernorm.weight]
+Loading weights:  97%|█████████▋| 141/146 [00:02<00:05,  1.17s/it, Materializing param=model.layers.15.post_attention_layernorm.weight]
+Loading weights:  97%|█████████▋| 142/146 [00:02<00:04,  1.17s/it, Materializing param=model.layers.15.self_attn.k_proj.weight]        
+Loading weights:  97%|█████████▋| 142/146 [00:02<00:04,  1.17s/it, Materializing param=model.layers.15.self_attn.k_proj.weight]
+Loading weights:  98%|█████████▊| 143/146 [00:02<00:03,  1.17s/it, Materializing param=model.layers.15.self_attn.o_proj.weight]
+Loading weights:  98%|█████████▊| 143/146 [00:02<00:03,  1.17s/it, Materializing param=model.layers.15.self_attn.o_proj.weight]
+Loading weights:  99%|█████████▊| 144/146 [00:02<00:02,  1.17s/it, Materializing param=model.layers.15.self_attn.q_proj.weight]
+Loading weights:  99%|█████████▊| 144/146 [00:02<00:02,  1.17s/it, Materializing param=model.layers.15.self_attn.q_proj.weight]
+Loading weights:  99%|█████████▉| 145/146 [00:02<00:01,  1.17s/it, Materializing param=model.layers.15.self_attn.v_proj.weight]
+Loading weights:  99%|█████████▉| 145/146 [00:02<00:01,  1.17s/it, Materializing param=model.layers.15.self_attn.v_proj.weight]
+Loading weights: 100%|██████████| 146/146 [00:02<00:00,  1.17s/it, Materializing param=model.norm.weight]                      
+Loading weights: 100%|██████████| 146/146 [00:02<00:00,  1.17s/it, Materializing param=model.norm.weight]
+Loading weights: 100%|██████████| 146/146 [00:02<00:00, 49.83it/s, Materializing param=model.norm.weight]
+Model loaded
+  Device: cuda:0
+  VRAM: 2.47 GB
+Loading SAE: EleutherAI TopK K32 131k MLP (Llama-3.2-1B)...
+  Architecture: batchtopk
+  Repo: EleutherAI/sae-Llama-3.2-1B-131k
+  File: layers.9.mlp/sae.safetensors
+  Config loaded: {'expansion_factor': 32, 'normalize_decoder': True, 'num_latents': 131072, 'k': 32, 'multi_topk': False, 'skip_connection': False, 'd_in': 2048}
+  State dict keys: ['W_dec', 'b_dec', 'encoder.bias', 'encoder.weight']
+  encoder.weight -> W_enc (transposed)
+  encoder.bias -> b_enc
+  W_dec -> W_dec
+  b_dec -> b_dec
+  Weights loaded
+BatchTopK SAE loaded: 131072 features, k=32, center_input=True
+Loading benchmark: MMLU-Pro Computer Science...
+  Dataset: TIGER-Lab/MMLU-Pro
+  Config: default
+    test: 12032 questions
+    validation: 70 questions
+  Combined: 12102 questions
+  Category filter on 'category' (['computer science']): 12102 -> 415
+  Choice-count filter (10): 415 -> 322
+
+Answer token IDs: {'A': 32, 'B': 33, 'C': 34, 'D': 35, 'E': 36, 'F': 37, 'G': 38, 'H': 39, 'I': 40, 'J': 41}
+Running logit screening for MMLU-Pro Computer Science...
+  Questions: 322, batch_size=32
+
+Logit Screening:   0%|          | 0/11 [00:00<?, ?it/s]
+Logit Screening:   9%|▉         | 1/11 [00:01<00:18,  1.85s/it]
+Logit Screening:  18%|█▊        | 2/11 [00:02<00:12,  1.37s/it]
+Logit Screening:  27%|██▋       | 3/11 [00:03<00:09,  1.14s/it]
+Logit Screening:  36%|███▋      | 4/11 [00:04<00:06,  1.02it/s]
+Logit Screening:  45%|████▌     | 5/11 [00:05<00:05,  1.18it/s]
+Logit Screening:  55%|█████▍    | 6/11 [00:05<00:04,  1.19it/s]
+Logit Screening:  64%|██████▎   | 7/11 [00:06<00:03,  1.29it/s]
+Logit Screening:  73%|███████▎  | 8/11 [00:07<00:02,  1.37it/s]
+Logit Screening:  82%|████████▏ | 9/11 [00:08<00:01,  1.11it/s]
+Logit Screening:  91%|█████████ | 10/11 [00:09<00:00,  1.26it/s]
+Logit Screening: 100%|██████████| 11/11 [00:09<00:00,  1.21it/s]
+Logit screening saved: results/logit_screening_mmlu_pro_cs_llama32_1b_v2.json
+
+Data overview: MMLU-Pro Computer Science
+  Total questions:    322
+  Total accuracy:     10.9%
+  P(correct) range:   [0.15, 0.45]
+  Filtered questions: 44
+  Filtered accuracy:  36.4%
+
+  Warning: only 44 questions after filter!
+
+  Train (freq_diff):  22
+  Val (causal test):  11
+  Test (filtered):    11
+  Test (full):        289
+================================================================================
+PHASE 1: freq_diff COMPUTATION
+================================================================================
+  Analyzing 22 training questions (batch_size=32)...
+
+Feature Tracking:   0%|          | 0/1 [00:00<?, ?it/s]
+Feature Tracking: 100%|██████████| 1/1 [00:00<00:00,  2.50it/s]
+Feature Tracking: 100%|██████████| 1/1 [00:00<00:00,  2.50it/s]
+  Successes: 8, Failures: 14, Accuracy: 36.4%
+  Dynamic min_occurrences: 3
+  Positive candidates: 38
+  Negative candidates: 32
+     1. Feature 87300: freq_diff = +35.7%
+     2. Feature 29456: freq_diff = +35.7%
+     3. Feature 17761: freq_diff = +30.4%
+     4. Feature 91641: freq_diff = +30.4%
+     5. Feature 118115: freq_diff = +23.2%
+     6. Feature 57015: freq_diff = +23.2%
+     7. Feature 47161: freq_diff = +21.4%
+     8. Feature 18989: freq_diff = +19.6%
+     9. Feature 14142: freq_diff = +19.6%
+    10. Feature  7894: freq_diff = +17.9%
+================================================================================
+PHASE 2: CAUSAL FEATURE SCREENING
+================================================================================
+  Computing baseline on 11 val questions (batch_size=32)...
+
+Baseline:   0%|          | 0/1 [00:00<?, ?it/s]
+Baseline: 100%|██████████| 1/1 [00:00<00:00,  5.96it/s]
+Baseline: 100%|██████████| 1/1 [00:00<00:00,  5.95it/s]
+  Baseline accuracy: 63.6%
+
+  Testing 38 positive candidates...
+
+Positive Features:   0%|          | 0/38 [00:00<?, ?it/s]
+
+Feature 87300:   0%|          | 0/1 [00:00<?, ?it/s][A
+
+Feature 87300: 100%|██████████| 1/1 [00:00<00:00,  5.81it/s][A
+Feature 87300: 100%|██████████| 1/1 [00:00<00:00,  5.80it/s]
+
+Positive Features:   3%|▎         | 1/38 [00:00<00:06,  5.79it/s]
+
+Feature 29456:   0%|          | 0/1 [00:00<?, ?it/s][A
+
+Feature 29456: 100%|██████████| 1/1 [00:00<00:00,  5.91it/s][A
+Feature 29456: 100%|██████████| 1/1 [00:00<00:00,  5.90it/s]
+
+Positive Features:   5%|▌         | 2/38 [00:00<00:06,  5.85it/s]
+
+Feature 17761:   0%|          | 0/1 [00:00<?, ?it/s][A
+
+Feature 17761: 100%|██████████| 1/1 [00:00<00:00,  5.92it/s][A
+Feature 17761: 100%|██████████| 1/1 [00:00<00:00,  5.91it/s]
+
+Positive Features:   8%|▊         | 3/38 [00:00<00:05,  5.87it/s]
+
+Feature 91641:   0%|          | 0/1 [00:00<?, ?it/s][A
+
+Feature 91641: 100%|██████████| 1/1 [00:00<00:00,  5.88it/s][A
+Feature 91641: 100%|██████████| 1/1 [00:00<00:00,  5.88it/s]
+
+Positive Features:  11%|█         | 4/38 [00:00<00:05,  5.87it/s]
+
+Feature 118115:   0%|          | 0/1 [00:00<?, ?it/s][A
+
+Feature 118115: 100%|██████████| 1/1 [00:00<00:00,  5.93it/s][A
+Feature 118115: 100%|██████████| 1/1 [00:00<00:00,  5.93it/s]
+
+Positive Features:  13%|█▎        | 5/38 [00:00<00:05,  5.88it/s]
+
+Feature 57015:   0%|          | 0/1 [00:00<?, ?it/s][A
+
+Feature 57015: 100%|██████████| 1/1 [00:00<00:00,  5.89it/s][A
+Feature 57015: 100%|██████████| 1/1 [00:00<00:00,  5.89it/s]
+
+Positive Features:  16%|█▌        | 6/38 [00:01<00:05,  5.88it/s]
+
+Feature 47161:   0%|          | 0/1 [00:00<?, ?it/s][A
+
+Feature 47161: 100%|██████████| 1/1 [00:00<00:00,  5.88it/s][A
+Feature 47161: 100%|██████████| 1/1 [00:00<00:00,  5.87it/s]
+
+Positive Features:  18%|█▊        | 7/38 [00:01<00:05,  5.87it/s]
+
+Feature 18989:   0%|          | 0/1 [00:00<?, ?it/s][A
+
+Feature 18989: 100%|██████████| 1/1 [00:00<00:00,  5.87it/s][A
+Feature 18989: 100%|██████████| 1/1 [00:00<00:00,  5.87it/s]
+
+Positive Features:  21%|██        | 8/38 [00:01<00:05,  5.87it/s]
+
+Feature 14142:   0%|          | 0/1 [00:00<?, ?it/s][A
+
+Feature 14142: 100%|██████████| 1/1 [00:00<00:00,  5.92it/s][A
+Feature 14142: 100%|██████████| 1/1 [00:00<00:00,  5.91it/s]
+
+Positive Features:  24%|██▎       | 9/38 [00:01<00:04,  5.88it/s]
+
+Feature 7894:   0%|          | 0/1 [00:00<?, ?it/s][A
+
+Feature 7894: 100%|██████████| 1/1 [00:00<00:00,  5.91it/s][A
+Feature 7894: 100%|██████████| 1/1 [00:00<00:00,  5.90it/s]
+
+Positive Features:  26%|██▋       | 10/38 [00:01<00:04,  5.88it/s]
+
+Feature 74060:   0%|          | 0/1 [00:00<?, ?it/s][A
+
+Feature 74060: 100%|██████████| 1/1 [00:00<00:00,  5.81it/s][A
+Feature 74060: 100%|██████████| 1/1 [00:00<00:00,  5.81it/s]
+
+Positive Features:  29%|██▉       | 11/38 [00:01<00:04,  5.85it/s]
+
+Feature 43105:   0%|          | 0/1 [00:00<?, ?it/s][A
+
+Feature 43105: 100%|██████████| 1/1 [00:00<00:00,  5.82it/s][A
+Feature 43105: 100%|██████████| 1/1 [00:00<00:00,  5.81it/s]
+
+Positive Features:  32%|███▏      | 12/38 [00:02<00:04,  5.83it/s]
+
+Feature 104734:   0%|          | 0/1 [00:00<?, ?it/s][A
+
+Feature 104734: 100%|██████████| 1/1 [00:00<00:00,  5.90it/s][A
+Feature 104734: 100%|██████████| 1/1 [00:00<00:00,  5.90it/s]
+
+Positive Features:  34%|███▍      | 13/38 [00:02<00:04,  5.85it/s]
+
+Feature 105445:   0%|          | 0/1 [00:00<?, ?it/s][A
+
+Feature 105445: 100%|██████████| 1/1 [00:00<00:00,  5.87it/s][A
+Feature 105445: 100%|██████████| 1/1 [00:00<00:00,  5.87it/s]
+
+Positive Features:  37%|███▋      | 14/38 [00:02<00:04,  5.85it/s]
+
+Feature 15965:   0%|          | 0/1 [00:00<?, ?it/s][A
+
+Feature 15965: 100%|██████████| 1/1 [00:00<00:00,  5.79it/s][A
+Feature 15965: 100%|██████████| 1/1 [00:00<00:00,  5.79it/s]
+
+Positive Features:  39%|███▉      | 15/38 [00:02<00:03,  5.83it/s]
+
+Feature 46903:   0%|          | 0/1 [00:00<?, ?it/s][A
+
+Feature 46903: 100%|██████████| 1/1 [00:00<00:00,  5.93it/s][A
+Feature 46903: 100%|██████████| 1/1 [00:00<00:00,  5.93it/s]
+
+Positive Features:  42%|████▏     | 16/38 [00:02<00:03,  5.85it/s]
+
+Feature 78169:   0%|          | 0/1 [00:00<?, ?it/s][A
+
+Feature 78169: 100%|██████████| 1/1 [00:00<00:00,  5.87it/s][A
+Feature 78169: 100%|██████████| 1/1 [00:00<00:00,  5.87it/s]
+
+Positive Features:  45%|████▍     | 17/38 [00:02<00:03,  5.85it/s]
+
+Feature 26055:   0%|          | 0/1 [00:00<?, ?it/s][A
+
+Feature 26055: 100%|██████████| 1/1 [00:00<00:00,  5.90it/s][A
+Feature 26055: 100%|██████████| 1/1 [00:00<00:00,  5.89it/s]
+
+Positive Features:  47%|████▋     | 18/38 [00:03<00:03,  5.86it/s]
+
+Feature 54383:   0%|          | 0/1 [00:00<?, ?it/s][A
+
+Feature 54383: 100%|██████████| 1/1 [00:00<00:00,  5.81it/s][A
+Feature 54383: 100%|██████████| 1/1 [00:00<00:00,  5.81it/s]
+
+Positive Features:  50%|█████     | 19/38 [00:03<00:03,  5.84it/s]
+
+Feature 71497:   0%|          | 0/1 [00:00<?, ?it/s][A
+
+Feature 71497: 100%|██████████| 1/1 [00:00<00:00,  5.89it/s][A
+Feature 71497: 100%|██████████| 1/1 [00:00<00:00,  5.89it/s]
+
+Positive Features:  53%|█████▎    | 20/38 [00:03<00:03,  5.85it/s]
+
+Feature 12195:   0%|          | 0/1 [00:00<?, ?it/s][A
+
+Feature 12195: 100%|██████████| 1/1 [00:00<00:00,  5.82it/s][A
+Feature 12195: 100%|██████████| 1/1 [00:00<00:00,  5.82it/s]
+
+Positive Features:  55%|█████▌    | 21/38 [00:03<00:02,  5.84it/s]
+
+Feature 32360:   0%|          | 0/1 [00:00<?, ?it/s][A
+
+Feature 32360: 100%|██████████| 1/1 [00:00<00:00,  5.92it/s][A
+Feature 32360: 100%|██████████| 1/1 [00:00<00:00,  5.92it/s]
+
+Positive Features:  58%|█████▊    | 22/38 [00:03<00:02,  5.86it/s]
+
+Feature 108351:   0%|          | 0/1 [00:00<?, ?it/s][A
+
+Feature 108351: 100%|██████████| 1/1 [00:00<00:00,  5.85it/s][A
+Feature 108351: 100%|██████████| 1/1 [00:00<00:00,  5.84it/s]
+
+Positive Features:  61%|██████    | 23/38 [00:03<00:02,  5.85it/s]
+
+Feature 22399:   0%|          | 0/1 [00:00<?, ?it/s][A
+
+Feature 22399: 100%|██████████| 1/1 [00:00<00:00,  5.91it/s][A
+Feature 22399: 100%|██████████| 1/1 [00:00<00:00,  5.91it/s]
+
+Positive Features:  63%|██████▎   | 24/38 [00:04<00:02,  5.86it/s]
+
+Feature 41354:   0%|          | 0/1 [00:00<?, ?it/s][A
+
+Feature 41354: 100%|██████████| 1/1 [00:00<00:00,  5.88it/s][A
+Feature 41354: 100%|██████████| 1/1 [00:00<00:00,  5.88it/s]
+
+Positive Features:  66%|██████▌   | 25/38 [00:04<00:02,  5.86it/s]
+
+Feature 122297:   0%|          | 0/1 [00:00<?, ?it/s][A
+
+Feature 122297: 100%|██████████| 1/1 [00:00<00:00,  5.90it/s][A
+Feature 122297: 100%|██████████| 1/1 [00:00<00:00,  5.90it/s]
+
+Positive Features:  68%|██████▊   | 26/38 [00:04<00:02,  5.87it/s]
+
+Feature 62419:   0%|          | 0/1 [00:00<?, ?it/s][A
+
+Feature 62419: 100%|██████████| 1/1 [00:00<00:00,  5.86it/s][A
+Feature 62419: 100%|██████████| 1/1 [00:00<00:00,  5.86it/s]
+
+Positive Features:  71%|███████   | 27/38 [00:04<00:01,  5.86it/s]
+
+Feature 13108:   0%|          | 0/1 [00:00<?, ?it/s][A
+
+Feature 13108: 100%|██████████| 1/1 [00:00<00:00,  5.90it/s][A
+Feature 13108: 100%|██████████| 1/1 [00:00<00:00,  5.89it/s]
+
+Positive Features:  74%|███████▎  | 28/38 [00:04<00:01,  5.87it/s]
+
+Feature 101911:   0%|          | 0/1 [00:00<?, ?it/s][A
+
+Feature 101911: 100%|██████████| 1/1 [00:00<00:00,  5.87it/s][A
+Feature 101911: 100%|██████████| 1/1 [00:00<00:00,  5.87it/s]
+
+Positive Features:  76%|███████▋  | 29/38 [00:04<00:01,  5.86it/s]
+
+Feature 108273:   0%|          | 0/1 [00:00<?, ?it/s][A
+
+Feature 108273: 100%|██████████| 1/1 [00:00<00:00,  5.91it/s][A
+Feature 108273: 100%|██████████| 1/1 [00:00<00:00,  5.91it/s]
+
+Positive Features:  79%|███████▉  | 30/38 [00:05<00:01,  5.87it/s]
+
+Feature 13559:   0%|          | 0/1 [00:00<?, ?it/s][A
+
+Feature 13559: 100%|██████████| 1/1 [00:00<00:00,  5.92it/s][A
+Feature 13559: 100%|██████████| 1/1 [00:00<00:00,  5.92it/s]
+
+Positive Features:  82%|████████▏ | 31/38 [00:05<00:01,  5.88it/s]
+
+Feature 18252:   0%|          | 0/1 [00:00<?, ?it/s][A
+
+Feature 18252: 100%|██████████| 1/1 [00:00<00:00,  5.97it/s][A
+Feature 18252: 100%|██████████| 1/1 [00:00<00:00,  5.96it/s]
+
+Positive Features:  84%|████████▍ | 32/38 [00:05<00:01,  5.90it/s]
+
+Feature 17753:   0%|          | 0/1 [00:00<?, ?it/s][A
+
+Feature 17753: 100%|██████████| 1/1 [00:00<00:00,  5.92it/s][A
+Feature 17753: 100%|██████████| 1/1 [00:00<00:00,  5.92it/s]
+
+Positive Features:  87%|████████▋ | 33/38 [00:05<00:00,  5.90it/s]
+
+Feature 116152:   0%|          | 0/1 [00:00<?, ?it/s][A
+
+Feature 116152: 100%|██████████| 1/1 [00:00<00:00,  5.89it/s][A
+Feature 116152: 100%|██████████| 1/1 [00:00<00:00,  5.89it/s]
+
+Positive Features:  89%|████████▉ | 34/38 [00:05<00:00,  5.89it/s]
+
+Feature 95897:   0%|          | 0/1 [00:00<?, ?it/s][A
+
+Feature 95897: 100%|██████████| 1/1 [00:00<00:00,  5.91it/s][A
+Feature 95897: 100%|██████████| 1/1 [00:00<00:00,  5.91it/s]
+
+Positive Features:  92%|█████████▏| 35/38 [00:05<00:00,  5.89it/s]
+
+Feature 63194:   0%|          | 0/1 [00:00<?, ?it/s][A
+
+Feature 63194: 100%|██████████| 1/1 [00:00<00:00,  5.93it/s][A
+Feature 63194: 100%|██████████| 1/1 [00:00<00:00,  5.93it/s]
+
+Positive Features:  95%|█████████▍| 36/38 [00:06<00:00,  5.90it/s]
+
+Feature 87810:   0%|          | 0/1 [00:00<?, ?it/s][A
+
+Feature 87810: 100%|██████████| 1/1 [00:00<00:00,  5.89it/s][A
+Feature 87810: 100%|██████████| 1/1 [00:00<00:00,  5.88it/s]
+
+Positive Features:  97%|█████████▋| 37/38 [00:06<00:00,  5.89it/s]
+
+Feature 46941:   0%|          | 0/1 [00:00<?, ?it/s][A
+
+Feature 46941: 100%|██████████| 1/1 [00:00<00:00,  5.95it/s][A
+Feature 46941: 100%|██████████| 1/1 [00:00<00:00,  5.94it/s]
+
+Positive Features: 100%|██████████| 38/38 [00:06<00:00,  5.90it/s]
+Positive Features: 100%|██████████| 38/38 [00:06<00:00,  5.87it/s]
+  Testing 32 negative candidates...
+
+Negative Features:   0%|          | 0/32 [00:00<?, ?it/s]
+
+Feature 81743:   0%|          | 0/1 [00:00<?, ?it/s][A
+
+Feature 81743: 100%|██████████| 1/1 [00:00<00:00,  5.90it/s][A
+Feature 81743: 100%|██████████| 1/1 [00:00<00:00,  5.89it/s]
+
+Negative Features:   3%|▎         | 1/32 [00:00<00:05,  5.88it/s]
+
+Feature 70444:   0%|          | 0/1 [00:00<?, ?it/s][A
+
+Feature 70444: 100%|██████████| 1/1 [00:00<00:00,  5.88it/s][A
+Feature 70444: 100%|██████████| 1/1 [00:00<00:00,  5.87it/s]
+
+Negative Features:   6%|▋         | 2/32 [00:00<00:05,  5.87it/s]
+
+Feature 5556:   0%|          | 0/1 [00:00<?, ?it/s][A
+
+Feature 5556: 100%|██████████| 1/1 [00:00<00:00,  5.87it/s][A
+Feature 5556: 100%|██████████| 1/1 [00:00<00:00,  5.86it/s]
+
+Negative Features:   9%|▉         | 3/32 [00:00<00:04,  5.86it/s]
+
+Feature 21887:   0%|          | 0/1 [00:00<?, ?it/s][A
+
+Feature 21887: 100%|██████████| 1/1 [00:00<00:00,  5.91it/s][A
+Feature 21887: 100%|██████████| 1/1 [00:00<00:00,  5.91it/s]
+
+Negative Features:  12%|█▎        | 4/32 [00:00<00:04,  5.87it/s]
+
+Feature 102361:   0%|          | 0/1 [00:00<?, ?it/s][A
+
+Feature 102361: 100%|██████████| 1/1 [00:00<00:00,  5.84it/s][A
+Feature 102361: 100%|██████████| 1/1 [00:00<00:00,  5.83it/s]
+
+Negative Features:  16%|█▌        | 5/32 [00:00<00:04,  5.85it/s]
+
+Feature 43826:   0%|          | 0/1 [00:00<?, ?it/s][A
+
+Feature 43826: 100%|██████████| 1/1 [00:00<00:00,  5.94it/s][A
+Feature 43826: 100%|██████████| 1/1 [00:00<00:00,  5.93it/s]
+
+Negative Features:  19%|█▉        | 6/32 [00:01<00:04,  5.87it/s]
+
+Feature 24109:   0%|          | 0/1 [00:00<?, ?it/s][A
+
+Feature 24109: 100%|██████████| 1/1 [00:00<00:00,  5.89it/s][A
+Feature 24109: 100%|██████████| 1/1 [00:00<00:00,  5.89it/s]
+
+Negative Features:  22%|██▏       | 7/32 [00:01<00:04,  5.87it/s]
+
+Feature 30901:   0%|          | 0/1 [00:00<?, ?it/s][A
+
+Feature 30901: 100%|██████████| 1/1 [00:00<00:00,  5.85it/s][A
+Feature 30901: 100%|██████████| 1/1 [00:00<00:00,  5.85it/s]
+
+Negative Features:  25%|██▌       | 8/32 [00:01<00:04,  5.86it/s]
+
+Feature 4420:   0%|          | 0/1 [00:00<?, ?it/s][A
+
+Feature 4420: 100%|██████████| 1/1 [00:00<00:00,  5.86it/s][A
+Feature 4420: 100%|██████████| 1/1 [00:00<00:00,  5.85it/s]
+
+Negative Features:  28%|██▊       | 9/32 [00:01<00:03,  5.85it/s]
+
+Feature 28903:   0%|          | 0/1 [00:00<?, ?it/s][A
+
+Feature 28903: 100%|██████████| 1/1 [00:00<00:00,  5.92it/s][A
+Feature 28903: 100%|██████████| 1/1 [00:00<00:00,  5.91it/s]
+
+Negative Features:  31%|███▏      | 10/32 [00:01<00:03,  5.87it/s]
+
+Feature 61863:   0%|          | 0/1 [00:00<?, ?it/s][A
+
+Feature 61863: 100%|██████████| 1/1 [00:00<00:00,  5.87it/s][A
+Feature 61863: 100%|██████████| 1/1 [00:00<00:00,  5.86it/s]
+
+Negative Features:  34%|███▍      | 11/32 [00:01<00:03,  5.86it/s]
+
+Feature 38403:   0%|          | 0/1 [00:00<?, ?it/s][A
+
+Feature 38403: 100%|██████████| 1/1 [00:00<00:00,  5.86it/s][A
+Feature 38403: 100%|██████████| 1/1 [00:00<00:00,  5.86it/s]
+
+Negative Features:  38%|███▊      | 12/32 [00:02<00:03,  5.86it/s]
+
+Feature 121879:   0%|          | 0/1 [00:00<?, ?it/s][A
+
+Feature 121879: 100%|██████████| 1/1 [00:00<00:00,  5.84it/s][A
+Feature 121879: 100%|██████████| 1/1 [00:00<00:00,  5.84it/s]
+
+Negative Features:  41%|████      | 13/32 [00:02<00:03,  5.85it/s]
+
+Feature 67627:   0%|          | 0/1 [00:00<?, ?it/s][A
+
+Feature 67627: 100%|██████████| 1/1 [00:00<00:00,  5.85it/s][A
+Feature 67627: 100%|██████████| 1/1 [00:00<00:00,  5.84it/s]
+
+Negative Features:  44%|████▍     | 14/32 [00:02<00:03,  5.84it/s]
+
+Feature 26295:   0%|          | 0/1 [00:00<?, ?it/s][A
+
+Feature 26295: 100%|██████████| 1/1 [00:00<00:00,  5.86it/s][A
+Feature 26295: 100%|██████████| 1/1 [00:00<00:00,  5.86it/s]
+
+Negative Features:  47%|████▋     | 15/32 [00:02<00:02,  5.84it/s]
+
+Feature 33098:   0%|          | 0/1 [00:00<?, ?it/s][A
+
+Feature 33098: 100%|██████████| 1/1 [00:00<00:00,  5.81it/s][A
+Feature 33098: 100%|██████████| 1/1 [00:00<00:00,  5.81it/s]
+
+Negative Features:  50%|█████     | 16/32 [00:02<00:02,  5.83it/s]
+
+Feature 37735:   0%|          | 0/1 [00:00<?, ?it/s][A
+
+Feature 37735: 100%|██████████| 1/1 [00:00<00:00,  5.87it/s][A
+Feature 37735: 100%|██████████| 1/1 [00:00<00:00,  5.86it/s]
+
+Negative Features:  53%|█████▎    | 17/32 [00:02<00:02,  5.83it/s]
+
+Feature 36286:   0%|          | 0/1 [00:00<?, ?it/s][A
+
+Feature 36286: 100%|██████████| 1/1 [00:00<00:00,  5.84it/s][A
+Feature 36286: 100%|██████████| 1/1 [00:00<00:00,  5.83it/s]
+
+Negative Features:  56%|█████▋    | 18/32 [00:03<00:02,  5.83it/s]
+
+Feature 102901:   0%|          | 0/1 [00:00<?, ?it/s][A
+
+Feature 102901: 100%|██████████| 1/1 [00:00<00:00,  5.85it/s][A
+Feature 102901: 100%|██████████| 1/1 [00:00<00:00,  5.85it/s]
+
+Negative Features:  59%|█████▉    | 19/32 [00:03<00:02,  5.83it/s]
+
+Feature 41501:   0%|          | 0/1 [00:00<?, ?it/s][A
+
+Feature 41501: 100%|██████████| 1/1 [00:00<00:00,  5.89it/s][A
+Feature 41501: 100%|██████████| 1/1 [00:00<00:00,  5.89it/s]
+
+Negative Features:  62%|██████▎   | 20/32 [00:03<00:02,  5.84it/s]
+
+Feature 58763:   0%|          | 0/1 [00:00<?, ?it/s][A
+
+Feature 58763: 100%|██████████| 1/1 [00:00<00:00,  5.83it/s][A
+Feature 58763: 100%|██████████| 1/1 [00:00<00:00,  5.83it/s]
+
+Negative Features:  66%|██████▌   | 21/32 [00:03<00:01,  5.83it/s]
+
+Feature 69973:   0%|          | 0/1 [00:00<?, ?it/s][A
+
+Feature 69973: 100%|██████████| 1/1 [00:00<00:00,  5.87it/s][A
+Feature 69973: 100%|██████████| 1/1 [00:00<00:00,  5.86it/s]
+
+Negative Features:  69%|██████▉   | 22/32 [00:03<00:01,  5.84it/s]
+
+Feature 93647:   0%|          | 0/1 [00:00<?, ?it/s][A
+
+Feature 93647: 100%|██████████| 1/1 [00:00<00:00,  5.87it/s][A
+Feature 93647: 100%|██████████| 1/1 [00:00<00:00,  5.87it/s]
+
+Negative Features:  72%|███████▏  | 23/32 [00:03<00:01,  5.84it/s]
+
+Feature 107696:   0%|          | 0/1 [00:00<?, ?it/s][A
+
+Feature 107696: 100%|██████████| 1/1 [00:00<00:00,  5.87it/s][A
+Feature 107696: 100%|██████████| 1/1 [00:00<00:00,  5.86it/s]
+
+Negative Features:  75%|███████▌  | 24/32 [00:04<00:01,  5.84it/s]
+
+Feature 79957:   0%|          | 0/1 [00:00<?, ?it/s][A
+
+Feature 79957: 100%|██████████| 1/1 [00:00<00:00,  5.91it/s][A
+Feature 79957: 100%|██████████| 1/1 [00:00<00:00,  5.91it/s]
+
+Negative Features:  78%|███████▊  | 25/32 [00:04<00:01,  5.86it/s]
+
+Feature 127016:   0%|          | 0/1 [00:00<?, ?it/s][A
+
+Feature 127016: 100%|██████████| 1/1 [00:00<00:00,  5.85it/s][A
+Feature 127016: 100%|██████████| 1/1 [00:00<00:00,  5.84it/s]
+
+Negative Features:  81%|████████▏ | 26/32 [00:04<00:01,  5.85it/s]
+
+Feature 77299:   0%|          | 0/1 [00:00<?, ?it/s][A
+
+Feature 77299: 100%|██████████| 1/1 [00:00<00:00,  5.84it/s][A
+Feature 77299: 100%|██████████| 1/1 [00:00<00:00,  5.83it/s]
+
+Negative Features:  84%|████████▍ | 27/32 [00:04<00:00,  5.84it/s]
+
+Feature 107553:   0%|          | 0/1 [00:00<?, ?it/s][A
+
+Feature 107553: 100%|██████████| 1/1 [00:00<00:00,  5.83it/s][A
+Feature 107553: 100%|██████████| 1/1 [00:00<00:00,  5.83it/s]
+
+Negative Features:  88%|████████▊ | 28/32 [00:04<00:00,  5.83it/s]
+
+Feature 80716:   0%|          | 0/1 [00:00<?, ?it/s][A
+
+Feature 80716: 100%|██████████| 1/1 [00:00<00:00,  5.83it/s][A
+Feature 80716: 100%|██████████| 1/1 [00:00<00:00,  5.83it/s]
+
+Negative Features:  91%|█████████ | 29/32 [00:04<00:00,  5.83it/s]
+
+Feature 9242:   0%|          | 0/1 [00:00<?, ?it/s][A
+
+Feature 9242: 100%|██████████| 1/1 [00:00<00:00,  5.83it/s][A
+Feature 9242: 100%|██████████| 1/1 [00:00<00:00,  5.83it/s]
+
+Negative Features:  94%|█████████▍| 30/32 [00:05<00:00,  5.82it/s]
+
+Feature 118525:   0%|          | 0/1 [00:00<?, ?it/s][A
+
+Feature 118525: 100%|██████████| 1/1 [00:00<00:00,  5.86it/s][A
+Feature 118525: 100%|██████████| 1/1 [00:00<00:00,  5.86it/s]
+
+Negative Features:  97%|█████████▋| 31/32 [00:05<00:00,  5.83it/s]
+
+Feature 5386:   0%|          | 0/1 [00:00<?, ?it/s][A
+
+Feature 5386: 100%|██████████| 1/1 [00:00<00:00,  5.84it/s][A
+Feature 5386: 100%|██████████| 1/1 [00:00<00:00,  5.84it/s]
+
+Negative Features: 100%|██████████| 32/32 [00:05<00:00,  5.83it/s]
+Negative Features: 100%|██████████| 32/32 [00:05<00:00,  5.84it/s]
+
+  Causal positive: 0/38
+  Causal negative (via dampening): 0/32
+================================================================================
+Computing baselines (batch_size=32)...
+
+Baseline (full):   0%|          | 0/10 [00:00<?, ?it/s]
+Baseline (full):  10%|█         | 1/10 [00:00<00:04,  2.08it/s]
+Baseline (full):  20%|██        | 2/10 [00:01<00:06,  1.22it/s]
+Baseline (full):  30%|███       | 3/10 [00:02<00:04,  1.48it/s]
+Baseline (full):  40%|████      | 4/10 [00:02<00:04,  1.42it/s]
+Baseline (full):  50%|█████     | 5/10 [00:03<00:03,  1.32it/s]
+Baseline (full):  60%|██████    | 6/10 [00:04<00:02,  1.39it/s]
+Baseline (full):  70%|███████   | 7/10 [00:04<00:02,  1.44it/s]
+Baseline (full):  80%|████████  | 8/10 [00:06<00:01,  1.14it/s]
+Baseline (full):  90%|█████████ | 9/10 [00:06<00:00,  1.28it/s]
+Baseline (full): 100%|██████████| 10/10 [00:06<00:00,  1.47it/s]
+  Filtered: 18.2% (11 questions)
+  Full:     7.3% (289 questions)
+================================================================================
+PHASE 3: GRID SEARCH
+================================================================================
+  Total combinations: 60
+  Test set: 289 questions (full), 11 filtered subset
+
+Grid Search:   0%|          | 0/60 [00:00<?, ?it/s]
+
+Grid 1/60:   0%|          | 0/10 [00:00<?, ?it/s][A
+
+Grid 1/60:  10%|█         | 1/10 [00:00<00:04,  2.07it/s][A
+
+Grid 1/60:  20%|██        | 2/10 [00:01<00:06,  1.23it/s][A
+
+Grid 1/60:  30%|███       | 3/10 [00:02<00:04,  1.47it/s][A
+
+Grid 1/60:  40%|████      | 4/10 [00:02<00:04,  1.42it/s][A
+
+Grid 1/60:  50%|█████     | 5/10 [00:03<00:03,  1.32it/s][A
+
+Grid 1/60:  60%|██████    | 6/10 [00:04<00:02,  1.38it/s][A
+
+Grid 1/60:  70%|███████   | 7/10 [00:04<00:02,  1.44it/s][A
+
+Grid 1/60:  80%|████████  | 8/10 [00:06<00:01,  1.13it/s][A
+
+Grid 1/60:  90%|█████████ | 9/10 [00:06<00:00,  1.28it/s][A
+Grid 1/60: 100%|██████████| 10/10 [00:06<00:00,  1.46it/s]
+
+Grid Search:   2%|▏         | 1/60 [00:06<06:47,  6.91s/it]
+
+Grid 2/60:   0%|          | 0/10 [00:00<?, ?it/s][A
+
+Grid 2/60:  10%|█         | 1/10 [00:00<00:04,  2.06it/s][A
+
+Grid 2/60:  20%|██        | 2/10 [00:01<00:06,  1.22it/s][A
+
+Grid 2/60:  30%|███       | 3/10 [00:02<00:04,  1.46it/s][A
+
+Grid 2/60:  40%|████      | 4/10 [00:02<00:04,  1.41it/s][A
+
+Grid 2/60:  50%|█████     | 5/10 [00:03<00:03,  1.31it/s][A
+
+Grid 2/60:  60%|██████    | 6/10 [00:04<00:02,  1.37it/s][A
+
+Grid 2/60:  70%|███████   | 7/10 [00:04<00:02,  1.43it/s][A
+
+Grid 2/60:  80%|████████  | 8/10 [00:06<00:01,  1.12it/s][A
+
+Grid 2/60:  90%|█████████ | 9/10 [00:06<00:00,  1.27it/s][A
+Grid 2/60: 100%|██████████| 10/10 [00:06<00:00,  1.46it/s]
+
+Grid Search:   3%|▎         | 2/60 [00:13<06:39,  6.88s/it]
+
+Grid 3/60:   0%|          | 0/10 [00:00<?, ?it/s][A
+
+Grid 3/60:  10%|█         | 1/10 [00:00<00:04,  2.06it/s][A
+
+Grid 3/60:  20%|██        | 2/10 [00:01<00:06,  1.21it/s][A
+
+Grid 3/60:  30%|███       | 3/10 [00:02<00:04,  1.46it/s][A
+
+Grid 3/60:  40%|████      | 4/10 [00:02<00:04,  1.40it/s][A
+
+Grid 3/60:  50%|█████     | 5/10 [00:03<00:03,  1.30it/s][A
+
+Grid 3/60:  60%|██████    | 6/10 [00:04<00:02,  1.37it/s][A
+
+Grid 3/60:  70%|███████   | 7/10 [00:04<00:02,  1.43it/s][A
+
+Grid 3/60:  80%|████████  | 8/10 [00:06<00:01,  1.12it/s][A
+
+Grid 3/60:  90%|█████████ | 9/10 [00:06<00:00,  1.26it/s][A
+Grid 3/60: 100%|██████████| 10/10 [00:06<00:00,  1.45it/s]
+
+Grid Search:   5%|▌         | 3/60 [00:20<06:32,  6.89s/it]
+
+Grid 4/60:   0%|          | 0/10 [00:00<?, ?it/s][A
+
+Grid 4/60:  10%|█         | 1/10 [00:00<00:04,  2.03it/s][A
+
+Grid 4/60:  20%|██        | 2/10 [00:01<00:06,  1.21it/s][A
+
+Grid 4/60:  30%|███       | 3/10 [00:02<00:04,  1.45it/s][A
+
+Grid 4/60:  40%|████      | 4/10 [00:02<00:04,  1.40it/s][A
+
+Grid 4/60:  50%|█████     | 5/10 [00:03<00:03,  1.30it/s][A
+
+Grid 4/60:  60%|██████    | 6/10 [00:04<00:02,  1.36it/s][A
+
+Grid 4/60:  70%|███████   | 7/10 [00:05<00:02,  1.42it/s][A
+
+Grid 4/60:  80%|████████  | 8/10 [00:06<00:01,  1.11it/s][A
+
+Grid 4/60:  90%|█████████ | 9/10 [00:06<00:00,  1.25it/s][A
+Grid 4/60: 100%|██████████| 10/10 [00:06<00:00,  1.44it/s]
+
+Grid Search:   7%|▋         | 4/60 [00:27<06:26,  6.91s/it]
+
+Grid 5/60:   0%|          | 0/10 [00:00<?, ?it/s][A
+
+Grid 5/60:  10%|█         | 1/10 [00:00<00:04,  2.02it/s][A
+
+Grid 5/60:  20%|██        | 2/10 [00:01<00:06,  1.19it/s][A
+
+Grid 5/60:  30%|███       | 3/10 [00:02<00:04,  1.43it/s][A
+
+Grid 5/60:  40%|████      | 4/10 [00:02<00:04,  1.38it/s][A
+
+Grid 5/60:  50%|█████     | 5/10 [00:03<00:03,  1.29it/s][A
+
+Grid 5/60:  60%|██████    | 6/10 [00:04<00:02,  1.35it/s][A
+
+Grid 5/60:  70%|███████   | 7/10 [00:05<00:02,  1.41it/s][A
+
+Grid 5/60:  80%|████████  | 8/10 [00:06<00:01,  1.11it/s][A
+
+Grid 5/60:  90%|█████████ | 9/10 [00:06<00:00,  1.25it/s][A
+Grid 5/60: 100%|██████████| 10/10 [00:06<00:00,  1.44it/s]
+
+Grid Search:   8%|▊         | 5/60 [00:34<06:21,  6.93s/it]
+
+Grid 6/60:   0%|          | 0/10 [00:00<?, ?it/s][A
+
+Grid 6/60:  10%|█         | 1/10 [00:00<00:04,  2.03it/s][A
+
+Grid 6/60:  20%|██        | 2/10 [00:01<00:06,  1.20it/s][A
+
+Grid 6/60:  30%|███       | 3/10 [00:02<00:04,  1.44it/s][A
+
+Grid 6/60:  40%|████      | 4/10 [00:02<00:04,  1.39it/s][A
+
+Grid 6/60:  50%|█████     | 5/10 [00:03<00:03,  1.29it/s][A
+
+Grid 6/60:  60%|██████    | 6/10 [00:04<00:02,  1.35it/s][A
+
+Grid 6/60:  70%|███████   | 7/10 [00:05<00:02,  1.41it/s][A
+
+Grid 6/60:  80%|████████  | 8/10 [00:06<00:01,  1.10it/s][A
+
+Grid 6/60:  90%|█████████ | 9/10 [00:06<00:00,  1.25it/s][A
+Grid 6/60: 100%|██████████| 10/10 [00:06<00:00,  1.43it/s]
+
+Grid Search:  10%|█         | 6/60 [00:41<06:15,  6.95s/it]
+
+Grid 7/60:   0%|          | 0/10 [00:00<?, ?it/s][A
+
+Grid 7/60:  10%|█         | 1/10 [00:00<00:04,  2.02it/s][A
+
+Grid 7/60:  20%|██        | 2/10 [00:01<00:06,  1.19it/s][A
+
+Grid 7/60:  30%|███       | 3/10 [00:02<00:04,  1.43it/s][A
+
+Grid 7/60:  40%|████      | 4/10 [00:02<00:04,  1.37it/s][A
+
+Grid 7/60:  50%|█████     | 5/10 [00:03<00:03,  1.27it/s][A
+
+Grid 7/60:  60%|██████    | 6/10 [00:04<00:02,  1.34it/s][A
+
+Grid 7/60:  70%|███████   | 7/10 [00:05<00:02,  1.40it/s][A
+
+Grid 7/60:  80%|████████  | 8/10 [00:06<00:01,  1.09it/s][A
+
+Grid 7/60:  90%|█████████ | 9/10 [00:07<00:00,  1.24it/s][A
+Grid 7/60: 100%|██████████| 10/10 [00:07<00:00,  1.42it/s]
+
+Grid Search:  12%|█▏        | 7/60 [00:48<06:09,  6.98s/it]
+
+Grid 8/60:   0%|          | 0/10 [00:00<?, ?it/s][A
+
+Grid 8/60:  10%|█         | 1/10 [00:00<00:04,  2.02it/s][A
+
+Grid 8/60:  20%|██        | 2/10 [00:01<00:06,  1.18it/s][A
+
+Grid 8/60:  30%|███       | 3/10 [00:02<00:04,  1.42it/s][A
+
+Grid 8/60:  40%|████      | 4/10 [00:02<00:04,  1.37it/s][A
+
+Grid 8/60:  50%|█████     | 5/10 [00:03<00:03,  1.28it/s][A
+
+Grid 8/60:  60%|██████    | 6/10 [00:04<00:02,  1.34it/s][A
+
+Grid 8/60:  70%|███████   | 7/10 [00:05<00:02,  1.39it/s][A
+
+Grid 8/60:  80%|████████  | 8/10 [00:06<00:01,  1.09it/s][A
+
+Grid 8/60:  90%|█████████ | 9/10 [00:07<00:00,  1.24it/s][A
+Grid 8/60: 100%|██████████| 10/10 [00:07<00:00,  1.42it/s]
+
+Grid Search:  13%|█▎        | 8/60 [00:55<06:03,  7.00s/it]
+
+Grid 9/60:   0%|          | 0/10 [00:00<?, ?it/s][A
+
+Grid 9/60:  10%|█         | 1/10 [00:00<00:04,  2.01it/s][A
+
+Grid 9/60:  20%|██        | 2/10 [00:01<00:06,  1.18it/s][A
+
+Grid 9/60:  30%|███       | 3/10 [00:02<00:04,  1.43it/s][A
+
+Grid 9/60:  40%|████      | 4/10 [00:02<00:04,  1.37it/s][A
+
+Grid 9/60:  50%|█████     | 5/10 [00:03<00:03,  1.28it/s][A
+
+Grid 9/60:  60%|██████    | 6/10 [00:04<00:02,  1.34it/s][A
+
+Grid 9/60:  70%|███████   | 7/10 [00:05<00:02,  1.40it/s][A
+
+Grid 9/60:  80%|████████  | 8/10 [00:06<00:01,  1.09it/s][A
+
+Grid 9/60:  90%|█████████ | 9/10 [00:07<00:00,  1.24it/s][A
+Grid 9/60: 100%|██████████| 10/10 [00:07<00:00,  1.42it/s]
+
+Grid Search:  15%|█▌        | 9/60 [01:02<05:57,  7.01s/it]
+
+Grid 10/60:   0%|          | 0/10 [00:00<?, ?it/s][A
+
+Grid 10/60:  10%|█         | 1/10 [00:00<00:04,  2.01it/s][A
+
+Grid 10/60:  20%|██        | 2/10 [00:01<00:06,  1.18it/s][A
+
+Grid 10/60:  30%|███       | 3/10 [00:02<00:04,  1.41it/s][A
+
+Grid 10/60:  40%|████      | 4/10 [00:02<00:04,  1.36it/s][A
+
+Grid 10/60:  50%|█████     | 5/10 [00:03<00:03,  1.27it/s][A
+
+Grid 10/60:  60%|██████    | 6/10 [00:04<00:02,  1.34it/s][A
+
+Grid 10/60:  70%|███████   | 7/10 [00:05<00:02,  1.39it/s][A
+
+Grid 10/60:  80%|████████  | 8/10 [00:06<00:01,  1.09it/s][A
+
+Grid 10/60:  90%|█████████ | 9/10 [00:07<00:00,  1.24it/s][A
+Grid 10/60: 100%|██████████| 10/10 [00:07<00:00,  1.42it/s]
+
+Grid Search:  17%|█▋        | 10/60 [01:09<05:51,  7.03s/it]
+
+Grid 11/60:   0%|          | 0/10 [00:00<?, ?it/s][A
+
+Grid 11/60:  10%|█         | 1/10 [00:00<00:04,  2.00it/s][A
+
+Grid 11/60:  20%|██        | 2/10 [00:01<00:06,  1.17it/s][A
+
+Grid 11/60:  30%|███       | 3/10 [00:02<00:04,  1.41it/s][A
+
+Grid 11/60:  40%|████      | 4/10 [00:02<00:04,  1.36it/s][A
+
+Grid 11/60:  50%|█████     | 5/10 [00:03<00:03,  1.27it/s][A
+
+Grid 11/60:  60%|██████    | 6/10 [00:04<00:03,  1.33it/s][A
+
+Grid 11/60:  70%|███████   | 7/10 [00:05<00:02,  1.39it/s][A
+
+Grid 11/60:  80%|████████  | 8/10 [00:06<00:01,  1.09it/s][A
+
+Grid 11/60:  90%|█████████ | 9/10 [00:07<00:00,  1.23it/s][A
+Grid 11/60: 100%|██████████| 10/10 [00:07<00:00,  1.41it/s]
+
+Grid Search:  18%|█▊        | 11/60 [01:16<05:45,  7.05s/it]
+
+Grid 12/60:   0%|          | 0/10 [00:00<?, ?it/s][A
+
+Grid 12/60:  10%|█         | 1/10 [00:00<00:04,  2.01it/s][A
+
+Grid 12/60:  20%|██        | 2/10 [00:01<00:06,  1.19it/s][A
+
+Grid 12/60:  30%|███       | 3/10 [00:02<00:04,  1.42it/s][A
+
+Grid 12/60:  40%|████      | 4/10 [00:02<00:04,  1.37it/s][A
+
+Grid 12/60:  50%|█████     | 5/10 [00:03<00:03,  1.28it/s][A
+
+Grid 12/60:  60%|██████    | 6/10 [00:04<00:02,  1.34it/s][A
+
+Grid 12/60:  70%|███████   | 7/10 [00:05<00:02,  1.40it/s][A
+
+Grid 12/60:  80%|████████  | 8/10 [00:06<00:01,  1.10it/s][A
+
+Grid 12/60:  90%|█████████ | 9/10 [00:07<00:00,  1.24it/s][A
+Grid 12/60: 100%|██████████| 10/10 [00:07<00:00,  1.42it/s]
+
+Grid Search:  20%|██        | 12/60 [01:23<05:38,  7.04s/it]
+
+Grid 13/60:   0%|          | 0/10 [00:00<?, ?it/s][A
+
+Grid 13/60:  10%|█         | 1/10 [00:00<00:04,  2.00it/s][A
+
+Grid 13/60:  20%|██        | 2/10 [00:01<00:06,  1.18it/s][A
+
+Grid 13/60:  30%|███       | 3/10 [00:02<00:04,  1.42it/s][A
+
+Grid 13/60:  40%|████      | 4/10 [00:02<00:04,  1.37it/s][A
+
+Grid 13/60:  50%|█████     | 5/10 [00:03<00:03,  1.27it/s][A
+
+Grid 13/60:  60%|██████    | 6/10 [00:04<00:03,  1.33it/s][A
+
+Grid 13/60:  70%|███████   | 7/10 [00:05<00:02,  1.39it/s][A
+
+Grid 13/60:  80%|████████  | 8/10 [00:06<00:01,  1.09it/s][A
+
+Grid 13/60:  90%|█████████ | 9/10 [00:07<00:00,  1.23it/s][A
+Grid 13/60: 100%|██████████| 10/10 [00:07<00:00,  1.41it/s]
+
+Grid Search:  22%|██▏       | 13/60 [01:30<05:31,  7.06s/it]
+
+Grid 14/60:   0%|          | 0/10 [00:00<?, ?it/s][A
+
+Grid 14/60:  10%|█         | 1/10 [00:00<00:04,  2.01it/s][A
+
+Grid 14/60:  20%|██        | 2/10 [00:01<00:06,  1.18it/s][A
+
+Grid 14/60:  30%|███       | 3/10 [00:02<00:04,  1.42it/s][A
+
+Grid 14/60:  40%|████      | 4/10 [00:02<00:04,  1.37it/s][A
+
+Grid 14/60:  50%|█████     | 5/10 [00:03<00:03,  1.27it/s][A
+
+Grid 14/60:  60%|██████    | 6/10 [00:04<00:03,  1.33it/s][A
+
+Grid 14/60:  70%|███████   | 7/10 [00:05<00:02,  1.39it/s][A
+
+Grid 14/60:  80%|████████  | 8/10 [00:06<00:01,  1.09it/s][A
+
+Grid 14/60:  90%|█████████ | 9/10 [00:07<00:00,  1.23it/s][A
+Grid 14/60: 100%|██████████| 10/10 [00:07<00:00,  1.41it/s]
+
+Grid Search:  23%|██▎       | 14/60 [01:38<05:24,  7.06s/it]
+
+Grid 15/60:   0%|          | 0/10 [00:00<?, ?it/s][A
+
+Grid 15/60:  10%|█         | 1/10 [00:00<00:04,  2.00it/s][A
+
+Grid 15/60:  20%|██        | 2/10 [00:01<00:06,  1.18it/s][A
+
+Grid 15/60:  30%|███       | 3/10 [00:02<00:04,  1.41it/s][A
+
+Grid 15/60:  40%|████      | 4/10 [00:02<00:04,  1.36it/s][A
+
+Grid 15/60:  50%|█████     | 5/10 [00:03<00:03,  1.27it/s][A
+
+Grid 15/60:  60%|██████    | 6/10 [00:04<00:03,  1.33it/s][A
+
+Grid 15/60:  70%|███████   | 7/10 [00:05<00:02,  1.39it/s][A
+
+Grid 15/60:  80%|████████  | 8/10 [00:06<00:01,  1.09it/s][A
+
+Grid 15/60:  90%|█████████ | 9/10 [00:07<00:00,  1.23it/s][A
+Grid 15/60: 100%|██████████| 10/10 [00:07<00:00,  1.41it/s]
+
+Grid Search:  25%|██▌       | 15/60 [01:45<05:18,  7.07s/it]
+
+Grid 16/60:   0%|          | 0/10 [00:00<?, ?it/s][A
+
+Grid 16/60:  10%|█         | 1/10 [00:00<00:04,  2.00it/s][A
+
+Grid 16/60:  20%|██        | 2/10 [00:01<00:06,  1.18it/s][A
+
+Grid 16/60:  30%|███       | 3/10 [00:02<00:04,  1.42it/s][A
+
+Grid 16/60:  40%|████      | 4/10 [00:02<00:04,  1.37it/s][A
+
+Grid 16/60:  50%|█████     | 5/10 [00:03<00:03,  1.27it/s][A
+
+Grid 16/60:  60%|██████    | 6/10 [00:04<00:02,  1.34it/s][A
+
+Grid 16/60:  70%|███████   | 7/10 [00:05<00:02,  1.39it/s][A
+
+Grid 16/60:  80%|████████  | 8/10 [00:06<00:01,  1.09it/s][A
+
+Grid 16/60:  90%|█████████ | 9/10 [00:07<00:00,  1.23it/s][A
+Grid 16/60: 100%|██████████| 10/10 [00:07<00:00,  1.42it/s]
+
+Grid Search:  27%|██▋       | 16/60 [01:52<05:11,  7.07s/it]
+
+Grid 17/60:   0%|          | 0/10 [00:00<?, ?it/s][A
+
+Grid 17/60:  10%|█         | 1/10 [00:00<00:04,  2.01it/s][A
+
+Grid 17/60:  20%|██        | 2/10 [00:01<00:06,  1.18it/s][A
+
+Grid 17/60:  30%|███       | 3/10 [00:02<00:04,  1.43it/s][A
+
+Grid 17/60:  40%|████      | 4/10 [00:02<00:04,  1.38it/s][A
+
+Grid 17/60:  50%|█████     | 5/10 [00:03<00:03,  1.28it/s][A
+
+Grid 17/60:  60%|██████    | 6/10 [00:04<00:02,  1.34it/s][A
+
+Grid 17/60:  70%|███████   | 7/10 [00:05<00:02,  1.39it/s][A
+
+Grid 17/60:  80%|████████  | 8/10 [00:06<00:01,  1.09it/s][A
+
+Grid 17/60:  90%|█████████ | 9/10 [00:07<00:00,  1.23it/s][A
+Grid 17/60: 100%|██████████| 10/10 [00:07<00:00,  1.42it/s]
+
+Grid Search:  28%|██▊       | 17/60 [01:59<05:03,  7.07s/it]
+
+Grid 18/60:   0%|          | 0/10 [00:00<?, ?it/s][A
+
+Grid 18/60:  10%|█         | 1/10 [00:00<00:04,  2.00it/s][A
+
+Grid 18/60:  20%|██        | 2/10 [00:01<00:06,  1.18it/s][A
+
+Grid 18/60:  30%|███       | 3/10 [00:02<00:04,  1.41it/s][A
+
+Grid 18/60:  40%|████      | 4/10 [00:02<00:04,  1.36it/s][A
+
+Grid 18/60:  50%|█████     | 5/10 [00:03<00:03,  1.27it/s][A
+
+Grid 18/60:  60%|██████    | 6/10 [00:04<00:02,  1.34it/s][A
+
+Grid 18/60:  70%|███████   | 7/10 [00:05<00:02,  1.39it/s][A
+
+Grid 18/60:  80%|████████  | 8/10 [00:06<00:01,  1.09it/s][A
+
+Grid 18/60:  90%|█████████ | 9/10 [00:07<00:00,  1.23it/s][A
+Grid 18/60: 100%|██████████| 10/10 [00:07<00:00,  1.41it/s]
+
+Grid Search:  30%|███       | 18/60 [02:06<04:57,  7.07s/it]
+
+Grid 19/60:   0%|          | 0/10 [00:00<?, ?it/s][A
+
+Grid 19/60:  10%|█         | 1/10 [00:00<00:04,  2.00it/s][A
+
+Grid 19/60:  20%|██        | 2/10 [00:01<00:06,  1.18it/s][A
+
+Grid 19/60:  30%|███       | 3/10 [00:02<00:04,  1.42it/s][A
+
+Grid 19/60:  40%|████      | 4/10 [00:02<00:04,  1.36it/s][A
+
+Grid 19/60:  50%|█████     | 5/10 [00:03<00:03,  1.27it/s][A
+
+Grid 19/60:  60%|██████    | 6/10 [00:04<00:02,  1.33it/s][A
+
+Grid 19/60:  70%|███████   | 7/10 [00:05<00:02,  1.39it/s][A
+
+Grid 19/60:  80%|████████  | 8/10 [00:06<00:01,  1.09it/s][A
+
+Grid 19/60:  90%|█████████ | 9/10 [00:07<00:00,  1.23it/s][A
+Grid 19/60: 100%|██████████| 10/10 [00:07<00:00,  1.41it/s]
+
+Grid Search:  32%|███▏      | 19/60 [02:13<04:50,  7.07s/it]
+
+Grid 20/60:   0%|          | 0/10 [00:00<?, ?it/s][A
+
+Grid 20/60:  10%|█         | 1/10 [00:00<00:04,  2.00it/s][A
+
+Grid 20/60:  20%|██        | 2/10 [00:01<00:06,  1.17it/s][A
+
+Grid 20/60:  30%|███       | 3/10 [00:02<00:04,  1.41it/s][A
+
+Grid 20/60:  40%|████      | 4/10 [00:02<00:04,  1.36it/s][A
+
+Grid 20/60:  50%|█████     | 5/10 [00:03<00:03,  1.26it/s][A
+
+Grid 20/60:  60%|██████    | 6/10 [00:04<00:03,  1.33it/s][A
+
+Grid 20/60:  70%|███████   | 7/10 [00:05<00:02,  1.38it/s][A
+
+Grid 20/60:  80%|████████  | 8/10 [00:06<00:01,  1.08it/s][A
+
+Grid 20/60:  90%|█████████ | 9/10 [00:07<00:00,  1.23it/s][A
+Grid 20/60: 100%|██████████| 10/10 [00:07<00:00,  1.41it/s]
+
+Grid Search:  33%|███▎      | 20/60 [02:20<04:43,  7.08s/it]
+
+Grid 21/60:   0%|          | 0/10 [00:00<?, ?it/s][A
+
+Grid 21/60:  10%|█         | 1/10 [00:00<00:04,  2.00it/s][A
+
+Grid 21/60:  20%|██        | 2/10 [00:01<00:06,  1.18it/s][A
+
+Grid 21/60:  30%|███       | 3/10 [00:02<00:04,  1.41it/s][A
+
+Grid 21/60:  40%|████      | 4/10 [00:02<00:04,  1.35it/s][A
+
+Grid 21/60:  50%|█████     | 5/10 [00:03<00:03,  1.26it/s][A
+
+Grid 21/60:  60%|██████    | 6/10 [00:04<00:03,  1.33it/s][A
+
+Grid 21/60:  70%|███████   | 7/10 [00:05<00:02,  1.38it/s][A
+
+Grid 21/60:  80%|████████  | 8/10 [00:06<00:01,  1.09it/s][A
+
+Grid 21/60:  90%|█████████ | 9/10 [00:07<00:00,  1.23it/s][A
+Grid 21/60: 100%|██████████| 10/10 [00:07<00:00,  1.41it/s]
+
+Grid Search:  35%|███▌      | 21/60 [02:27<04:36,  7.09s/it]
+
+Grid 22/60:   0%|          | 0/10 [00:00<?, ?it/s][A
+
+Grid 22/60:  10%|█         | 1/10 [00:00<00:04,  2.00it/s][A
+
+Grid 22/60:  20%|██        | 2/10 [00:01<00:06,  1.18it/s][A
+
+Grid 22/60:  30%|███       | 3/10 [00:02<00:04,  1.42it/s][A
+
+Grid 22/60:  40%|████      | 4/10 [00:02<00:04,  1.36it/s][A
+
+Grid 22/60:  50%|█████     | 5/10 [00:03<00:03,  1.27it/s][A
+
+Grid 22/60:  60%|██████    | 6/10 [00:04<00:03,  1.33it/s][A
+
+Grid 22/60:  70%|███████   | 7/10 [00:05<00:02,  1.39it/s][A
+
+Grid 22/60:  80%|████████  | 8/10 [00:06<00:01,  1.09it/s][A
+
+Grid 22/60:  90%|█████████ | 9/10 [00:07<00:00,  1.23it/s][A
+Grid 22/60: 100%|██████████| 10/10 [00:07<00:00,  1.41it/s]
+
+Grid Search:  37%|███▋      | 22/60 [02:34<04:29,  7.09s/it]
+
+Grid 23/60:   0%|          | 0/10 [00:00<?, ?it/s][A
+
+Grid 23/60:  10%|█         | 1/10 [00:00<00:04,  2.01it/s][A
+
+Grid 23/60:  20%|██        | 2/10 [00:01<00:06,  1.18it/s][A
+
+Grid 23/60:  30%|███       | 3/10 [00:02<00:04,  1.42it/s][A
+
+Grid 23/60:  40%|████      | 4/10 [00:02<00:04,  1.36it/s][A
+
+Grid 23/60:  50%|█████     | 5/10 [00:03<00:03,  1.27it/s][A
+
+Grid 23/60:  60%|██████    | 6/10 [00:04<00:03,  1.33it/s][A
+
+Grid 23/60:  70%|███████   | 7/10 [00:05<00:02,  1.38it/s][A
+
+Grid 23/60:  80%|████████  | 8/10 [00:06<00:01,  1.09it/s][A
+
+Grid 23/60:  90%|█████████ | 9/10 [00:07<00:00,  1.23it/s][A
+Grid 23/60: 100%|██████████| 10/10 [00:07<00:00,  1.41it/s]
+
+Grid Search:  38%|███▊      | 23/60 [02:41<04:22,  7.09s/it]
+
+Grid 24/60:   0%|          | 0/10 [00:00<?, ?it/s][A
+
+Grid 24/60:  10%|█         | 1/10 [00:00<00:04,  1.98it/s][A
+
+Grid 24/60:  20%|██        | 2/10 [00:01<00:06,  1.17it/s][A
+
+Grid 24/60:  30%|███       | 3/10 [00:02<00:04,  1.41it/s][A
+
+Grid 24/60:  40%|████      | 4/10 [00:02<00:04,  1.36it/s][A
+
+Grid 24/60:  50%|█████     | 5/10 [00:03<00:03,  1.26it/s][A
+
+Grid 24/60:  60%|██████    | 6/10 [00:04<00:03,  1.33it/s][A
+
+Grid 24/60:  70%|███████   | 7/10 [00:05<00:02,  1.38it/s][A
+
+Grid 24/60:  80%|████████  | 8/10 [00:06<00:01,  1.08it/s][A
+
+Grid 24/60:  90%|█████████ | 9/10 [00:07<00:00,  1.23it/s][A
+Grid 24/60: 100%|██████████| 10/10 [00:07<00:00,  1.41it/s]
+
+Grid Search:  40%|████      | 24/60 [02:48<04:15,  7.10s/it]
+
+Grid 25/60:   0%|          | 0/10 [00:00<?, ?it/s][A
+
+Grid 25/60:  10%|█         | 1/10 [00:00<00:04,  1.99it/s][A
+
+Grid 25/60:  20%|██        | 2/10 [00:01<00:06,  1.17it/s][A
+
+Grid 25/60:  30%|███       | 3/10 [00:02<00:04,  1.41it/s][A
+
+Grid 25/60:  40%|████      | 4/10 [00:02<00:04,  1.36it/s][A
+
+Grid 25/60:  50%|█████     | 5/10 [00:03<00:03,  1.27it/s][A
+
+Grid 25/60:  60%|██████    | 6/10 [00:04<00:03,  1.33it/s][A
+
+Grid 25/60:  70%|███████   | 7/10 [00:05<00:02,  1.38it/s][A
+
+Grid 25/60:  80%|████████  | 8/10 [00:06<00:01,  1.08it/s][A
+
+Grid 25/60:  90%|█████████ | 9/10 [00:07<00:00,  1.22it/s][A
+Grid 25/60: 100%|██████████| 10/10 [00:07<00:00,  1.41it/s]
+
+Grid Search:  42%|████▏     | 25/60 [02:56<04:08,  7.10s/it]
+
+Grid 26/60:   0%|          | 0/10 [00:00<?, ?it/s][A
+
+Grid 26/60:  10%|█         | 1/10 [00:00<00:04,  2.00it/s][A
+
+Grid 26/60:  20%|██        | 2/10 [00:01<00:06,  1.18it/s][A
+
+Grid 26/60:  30%|███       | 3/10 [00:02<00:04,  1.41it/s][A
+
+Grid 26/60:  40%|████      | 4/10 [00:02<00:04,  1.36it/s][A
+
+Grid 26/60:  50%|█████     | 5/10 [00:03<00:03,  1.27it/s][A
+
+Grid 26/60:  60%|██████    | 6/10 [00:04<00:03,  1.33it/s][A
+
+Grid 26/60:  70%|███████   | 7/10 [00:05<00:02,  1.38it/s][A
+
+Grid 26/60:  80%|████████  | 8/10 [00:06<00:01,  1.08it/s][A
+
+Grid 26/60:  90%|█████████ | 9/10 [00:07<00:00,  1.22it/s][A
+Grid 26/60: 100%|██████████| 10/10 [00:07<00:00,  1.41it/s]
+
+Grid Search:  43%|████▎     | 26/60 [03:03<04:01,  7.11s/it]
+
+Grid 27/60:   0%|          | 0/10 [00:00<?, ?it/s][A
+
+Grid 27/60:  10%|█         | 1/10 [00:00<00:04,  1.99it/s][A
+
+Grid 27/60:  20%|██        | 2/10 [00:01<00:06,  1.16it/s][A
+
+Grid 27/60:  30%|███       | 3/10 [00:02<00:04,  1.40it/s][A
+
+Grid 27/60:  40%|████      | 4/10 [00:02<00:04,  1.35it/s][A
+
+Grid 27/60:  50%|█████     | 5/10 [00:03<00:03,  1.26it/s][A
+
+Grid 27/60:  60%|██████    | 6/10 [00:04<00:03,  1.32it/s][A
+
+Grid 27/60:  70%|███████   | 7/10 [00:05<00:02,  1.37it/s][A
+
+Grid 27/60:  80%|████████  | 8/10 [00:06<00:01,  1.08it/s][A
+
+Grid 27/60:  90%|█████████ | 9/10 [00:07<00:00,  1.22it/s][A
+Grid 27/60: 100%|██████████| 10/10 [00:07<00:00,  1.40it/s]
+
+Grid Search:  45%|████▌     | 27/60 [03:10<03:54,  7.11s/it]
+
+Grid 28/60:   0%|          | 0/10 [00:00<?, ?it/s][A
+
+Grid 28/60:  10%|█         | 1/10 [00:00<00:04,  2.00it/s][A
+
+Grid 28/60:  20%|██        | 2/10 [00:01<00:06,  1.18it/s][A
+
+Grid 28/60:  30%|███       | 3/10 [00:02<00:04,  1.41it/s][A
+
+Grid 28/60:  40%|████      | 4/10 [00:02<00:04,  1.36it/s][A
+
+Grid 28/60:  50%|█████     | 5/10 [00:03<00:03,  1.27it/s][A
+
+Grid 28/60:  60%|██████    | 6/10 [00:04<00:03,  1.33it/s][A
+
+Grid 28/60:  70%|███████   | 7/10 [00:05<00:02,  1.38it/s][A
+
+Grid 28/60:  80%|████████  | 8/10 [00:06<00:01,  1.09it/s][A
+
+Grid 28/60:  90%|█████████ | 9/10 [00:07<00:00,  1.23it/s][A
+Grid 28/60: 100%|██████████| 10/10 [00:07<00:00,  1.41it/s]
+
+Grid Search:  47%|████▋     | 28/60 [03:17<03:47,  7.11s/it]
+
+Grid 29/60:   0%|          | 0/10 [00:00<?, ?it/s][A
+
+Grid 29/60:  10%|█         | 1/10 [00:00<00:04,  1.99it/s][A
+
+Grid 29/60:  20%|██        | 2/10 [00:01<00:06,  1.16it/s][A
+
+Grid 29/60:  30%|███       | 3/10 [00:02<00:05,  1.40it/s][A
+
+Grid 29/60:  40%|████      | 4/10 [00:02<00:04,  1.35it/s][A
+
+Grid 29/60:  50%|█████     | 5/10 [00:03<00:03,  1.26it/s][A
+
+Grid 29/60:  60%|██████    | 6/10 [00:04<00:03,  1.32it/s][A
+
+Grid 29/60:  70%|███████   | 7/10 [00:05<00:02,  1.38it/s][A
+
+Grid 29/60:  80%|████████  | 8/10 [00:06<00:01,  1.08it/s][A
+
+Grid 29/60:  90%|█████████ | 9/10 [00:07<00:00,  1.22it/s][A
+Grid 29/60: 100%|██████████| 10/10 [00:07<00:00,  1.40it/s]
+
+Grid Search:  48%|████▊     | 29/60 [03:24<03:40,  7.12s/it]
+
+Grid 30/60:   0%|          | 0/10 [00:00<?, ?it/s][A
+
+Grid 30/60:  10%|█         | 1/10 [00:00<00:04,  1.99it/s][A
+
+Grid 30/60:  20%|██        | 2/10 [00:01<00:06,  1.17it/s][A
+
+Grid 30/60:  30%|███       | 3/10 [00:02<00:04,  1.41it/s][A
+
+Grid 30/60:  40%|████      | 4/10 [00:02<00:04,  1.36it/s][A
+
+Grid 30/60:  50%|█████     | 5/10 [00:03<00:03,  1.26it/s][A
+
+Grid 30/60:  60%|██████    | 6/10 [00:04<00:03,  1.33it/s][A
+
+Grid 30/60:  70%|███████   | 7/10 [00:05<00:02,  1.38it/s][A
+
+Grid 30/60:  80%|████████  | 8/10 [00:06<00:01,  1.09it/s][A
+
+Grid 30/60:  90%|█████████ | 9/10 [00:07<00:00,  1.22it/s][A
+Grid 30/60: 100%|██████████| 10/10 [00:07<00:00,  1.41it/s]
+
+Grid Search:  50%|█████     | 30/60 [03:31<03:33,  7.12s/it]
+
+Grid 31/60:   0%|          | 0/10 [00:00<?, ?it/s][A
+
+Grid 31/60:  10%|█         | 1/10 [00:00<00:04,  1.99it/s][A
+
+Grid 31/60:  20%|██        | 2/10 [00:01<00:06,  1.18it/s][A
+
+Grid 31/60:  30%|███       | 3/10 [00:02<00:04,  1.41it/s][A
+
+Grid 31/60:  40%|████      | 4/10 [00:02<00:04,  1.36it/s][A
+
+Grid 31/60:  50%|█████     | 5/10 [00:03<00:03,  1.26it/s][A
+
+Grid 31/60:  60%|██████    | 6/10 [00:04<00:03,  1.32it/s][A
+
+Grid 31/60:  70%|███████   | 7/10 [00:05<00:02,  1.38it/s][A
+
+Grid 31/60:  80%|████████  | 8/10 [00:06<00:01,  1.08it/s][A
+
+Grid 31/60:  90%|█████████ | 9/10 [00:07<00:00,  1.22it/s][A
+Grid 31/60: 100%|██████████| 10/10 [00:07<00:00,  1.40it/s]
+
+Grid Search:  52%|█████▏    | 31/60 [03:38<03:26,  7.12s/it]
+
+Grid 32/60:   0%|          | 0/10 [00:00<?, ?it/s][A
+
+Grid 32/60:  10%|█         | 1/10 [00:00<00:04,  2.00it/s][A
+
+Grid 32/60:  20%|██        | 2/10 [00:01<00:06,  1.17it/s][A
+
+Grid 32/60:  30%|███       | 3/10 [00:02<00:04,  1.40it/s][A
+
+Grid 32/60:  40%|████      | 4/10 [00:02<00:04,  1.35it/s][A
+
+Grid 32/60:  50%|█████     | 5/10 [00:03<00:03,  1.26it/s][A
+
+Grid 32/60:  60%|██████    | 6/10 [00:04<00:03,  1.32it/s][A
+
+Grid 32/60:  70%|███████   | 7/10 [00:05<00:02,  1.38it/s][A
+
+Grid 32/60:  80%|████████  | 8/10 [00:06<00:01,  1.08it/s][A
+
+Grid 32/60:  90%|█████████ | 9/10 [00:07<00:00,  1.22it/s][A
+Grid 32/60: 100%|██████████| 10/10 [00:07<00:00,  1.40it/s]
+
+Grid Search:  53%|█████▎    | 32/60 [03:45<03:19,  7.13s/it]
+
+Grid 33/60:   0%|          | 0/10 [00:00<?, ?it/s][A
+
+Grid 33/60:  10%|█         | 1/10 [00:00<00:04,  1.99it/s][A
+
+Grid 33/60:  20%|██        | 2/10 [00:01<00:06,  1.17it/s][A
+
+Grid 33/60:  30%|███       | 3/10 [00:02<00:04,  1.41it/s][A
+
+Grid 33/60:  40%|████      | 4/10 [00:02<00:04,  1.35it/s][A
+
+Grid 33/60:  50%|█████     | 5/10 [00:03<00:03,  1.26it/s][A
+
+Grid 33/60:  60%|██████    | 6/10 [00:04<00:03,  1.32it/s][A
+
+Grid 33/60:  70%|███████   | 7/10 [00:05<00:02,  1.38it/s][A
+
+Grid 33/60:  80%|████████  | 8/10 [00:06<00:01,  1.08it/s][A
+
+Grid 33/60:  90%|█████████ | 9/10 [00:07<00:00,  1.22it/s][A
+Grid 33/60: 100%|██████████| 10/10 [00:07<00:00,  1.40it/s]
+
+Grid Search:  55%|█████▌    | 33/60 [03:53<03:12,  7.13s/it]
+
+Grid 34/60:   0%|          | 0/10 [00:00<?, ?it/s][A
+
+Grid 34/60:  10%|█         | 1/10 [00:00<00:04,  1.99it/s][A
+
+Grid 34/60:  20%|██        | 2/10 [00:01<00:06,  1.17it/s][A
+
+Grid 34/60:  30%|███       | 3/10 [00:02<00:04,  1.41it/s][A
+
+Grid 34/60:  40%|████      | 4/10 [00:02<00:04,  1.35it/s][A
+
+Grid 34/60:  50%|█████     | 5/10 [00:03<00:03,  1.26it/s][A
+
+Grid 34/60:  60%|██████    | 6/10 [00:04<00:03,  1.32it/s][A
+
+Grid 34/60:  70%|███████   | 7/10 [00:05<00:02,  1.38it/s][A
+
+Grid 34/60:  80%|████████  | 8/10 [00:06<00:01,  1.08it/s][A
+
+Grid 34/60:  90%|█████████ | 9/10 [00:07<00:00,  1.22it/s][A
+Grid 34/60: 100%|██████████| 10/10 [00:07<00:00,  1.40it/s]
+
+Grid Search:  57%|█████▋    | 34/60 [04:00<03:05,  7.13s/it]
+
+Grid 35/60:   0%|          | 0/10 [00:00<?, ?it/s][A
+
+Grid 35/60:  10%|█         | 1/10 [00:00<00:04,  1.97it/s][A
+
+Grid 35/60:  20%|██        | 2/10 [00:01<00:06,  1.17it/s][A
+
+Grid 35/60:  30%|███       | 3/10 [00:02<00:04,  1.41it/s][A
+
+Grid 35/60:  40%|████      | 4/10 [00:02<00:04,  1.36it/s][A
+
+Grid 35/60:  50%|█████     | 5/10 [00:03<00:03,  1.26it/s][A
+
+Grid 35/60:  60%|██████    | 6/10 [00:04<00:03,  1.33it/s][A
+
+Grid 35/60:  70%|███████   | 7/10 [00:05<00:02,  1.38it/s][A
+
+Grid 35/60:  80%|████████  | 8/10 [00:06<00:01,  1.08it/s][A
+
+Grid 35/60:  90%|█████████ | 9/10 [00:07<00:00,  1.22it/s][A
+Grid 35/60: 100%|██████████| 10/10 [00:07<00:00,  1.40it/s]
+
+Grid Search:  58%|█████▊    | 35/60 [04:07<02:58,  7.13s/it]
+
+Grid 36/60:   0%|          | 0/10 [00:00<?, ?it/s][A
+
+Grid 36/60:  10%|█         | 1/10 [00:00<00:04,  1.97it/s][A
+
+Grid 36/60:  20%|██        | 2/10 [00:01<00:06,  1.17it/s][A
+
+Grid 36/60:  30%|███       | 3/10 [00:02<00:04,  1.40it/s][A
+
+Grid 36/60:  40%|████      | 4/10 [00:02<00:04,  1.35it/s][A
+
+Grid 36/60:  50%|█████     | 5/10 [00:03<00:03,  1.26it/s][A
+
+Grid 36/60:  60%|██████    | 6/10 [00:04<00:03,  1.32it/s][A
+
+Grid 36/60:  70%|███████   | 7/10 [00:05<00:02,  1.38it/s][A
+
+Grid 36/60:  80%|████████  | 8/10 [00:06<00:01,  1.08it/s][A
+
+Grid 36/60:  90%|█████████ | 9/10 [00:07<00:00,  1.22it/s][A
+Grid 36/60: 100%|██████████| 10/10 [00:07<00:00,  1.40it/s]
+
+Grid Search:  60%|██████    | 36/60 [04:14<02:51,  7.13s/it]
+
+Grid 37/60:   0%|          | 0/10 [00:00<?, ?it/s][A
+
+Grid 37/60:  10%|█         | 1/10 [00:00<00:04,  1.96it/s][A
+
+Grid 37/60:  20%|██        | 2/10 [00:01<00:06,  1.16it/s][A
+
+Grid 37/60:  30%|███       | 3/10 [00:02<00:05,  1.40it/s][A
+
+Grid 37/60:  40%|████      | 4/10 [00:02<00:04,  1.35it/s][A
+
+Grid 37/60:  50%|█████     | 5/10 [00:03<00:03,  1.26it/s][A
+
+Grid 37/60:  60%|██████    | 6/10 [00:04<00:03,  1.32it/s][A
+
+Grid 37/60:  70%|███████   | 7/10 [00:05<00:02,  1.37it/s][A
+
+Grid 37/60:  80%|████████  | 8/10 [00:06<00:01,  1.08it/s][A
+
+Grid 37/60:  90%|█████████ | 9/10 [00:07<00:00,  1.22it/s][A
+Grid 37/60: 100%|██████████| 10/10 [00:07<00:00,  1.40it/s]
+
+Grid Search:  62%|██████▏   | 37/60 [04:21<02:44,  7.14s/it]
+
+Grid 38/60:   0%|          | 0/10 [00:00<?, ?it/s][A
+
+Grid 38/60:  10%|█         | 1/10 [00:00<00:04,  1.99it/s][A
+
+Grid 38/60:  20%|██        | 2/10 [00:01<00:06,  1.18it/s][A
+
+Grid 38/60:  30%|███       | 3/10 [00:02<00:04,  1.41it/s][A
+
+Grid 38/60:  40%|████      | 4/10 [00:02<00:04,  1.36it/s][A
+
+Grid 38/60:  50%|█████     | 5/10 [00:03<00:03,  1.26it/s][A
+
+Grid 38/60:  60%|██████    | 6/10 [00:04<00:03,  1.33it/s][A
+
+Grid 38/60:  70%|███████   | 7/10 [00:05<00:02,  1.38it/s][A
+
+Grid 38/60:  80%|████████  | 8/10 [00:06<00:01,  1.08it/s][A
+
+Grid 38/60:  90%|█████████ | 9/10 [00:07<00:00,  1.22it/s][A
+Grid 38/60: 100%|██████████| 10/10 [00:07<00:00,  1.41it/s]
+
+Grid Search:  63%|██████▎   | 38/60 [04:28<02:36,  7.13s/it]
+
+Grid 39/60:   0%|          | 0/10 [00:00<?, ?it/s][A
+
+Grid 39/60:  10%|█         | 1/10 [00:00<00:04,  1.98it/s][A
+
+Grid 39/60:  20%|██        | 2/10 [00:01<00:06,  1.16it/s][A
+
+Grid 39/60:  30%|███       | 3/10 [00:02<00:05,  1.40it/s][A
+
+Grid 39/60:  40%|████      | 4/10 [00:02<00:04,  1.35it/s][A
+
+Grid 39/60:  50%|█████     | 5/10 [00:03<00:03,  1.26it/s][A
+
+Grid 39/60:  60%|██████    | 6/10 [00:04<00:03,  1.32it/s][A
+
+Grid 39/60:  70%|███████   | 7/10 [00:05<00:02,  1.38it/s][A
+
+Grid 39/60:  80%|████████  | 8/10 [00:06<00:01,  1.08it/s][A
+
+Grid 39/60:  90%|█████████ | 9/10 [00:07<00:00,  1.22it/s][A
+Grid 39/60: 100%|██████████| 10/10 [00:07<00:00,  1.40it/s]
+
+Grid Search:  65%|██████▌   | 39/60 [04:35<02:29,  7.14s/it]
+
+Grid 40/60:   0%|          | 0/10 [00:00<?, ?it/s][A
+
+Grid 40/60:  10%|█         | 1/10 [00:00<00:04,  1.98it/s][A
+
+Grid 40/60:  20%|██        | 2/10 [00:01<00:06,  1.17it/s][A
+
+Grid 40/60:  30%|███       | 3/10 [00:02<00:04,  1.41it/s][A
+
+Grid 40/60:  40%|████      | 4/10 [00:02<00:04,  1.35it/s][A
+
+Grid 40/60:  50%|█████     | 5/10 [00:03<00:03,  1.26it/s][A
+
+Grid 40/60:  60%|██████    | 6/10 [00:04<00:03,  1.32it/s][A
+
+Grid 40/60:  70%|███████   | 7/10 [00:05<00:02,  1.37it/s][A
+
+Grid 40/60:  80%|████████  | 8/10 [00:06<00:01,  1.08it/s][A
+
+Grid 40/60:  90%|█████████ | 9/10 [00:07<00:00,  1.22it/s][A
+Grid 40/60: 100%|██████████| 10/10 [00:07<00:00,  1.40it/s]
+
+Grid Search:  67%|██████▋   | 40/60 [04:43<02:22,  7.14s/it]
+
+Grid 41/60:   0%|          | 0/10 [00:00<?, ?it/s][A
+
+Grid 41/60:  10%|█         | 1/10 [00:00<00:04,  1.98it/s][A
+
+Grid 41/60:  20%|██        | 2/10 [00:01<00:06,  1.16it/s][A
+
+Grid 41/60:  30%|███       | 3/10 [00:02<00:05,  1.39it/s][A
+
+Grid 41/60:  40%|████      | 4/10 [00:02<00:04,  1.35it/s][A
+
+Grid 41/60:  50%|█████     | 5/10 [00:03<00:03,  1.25it/s][A
+
+Grid 41/60:  60%|██████    | 6/10 [00:04<00:03,  1.32it/s][A
+
+Grid 41/60:  70%|███████   | 7/10 [00:05<00:02,  1.37it/s][A
+
+Grid 41/60:  80%|████████  | 8/10 [00:06<00:01,  1.08it/s][A
+
+Grid 41/60:  90%|█████████ | 9/10 [00:07<00:00,  1.22it/s][A
+Grid 41/60: 100%|██████████| 10/10 [00:07<00:00,  1.40it/s]
+
+Grid Search:  68%|██████▊   | 41/60 [04:50<02:15,  7.15s/it]
+
+Grid 42/60:   0%|          | 0/10 [00:00<?, ?it/s][A
+
+Grid 42/60:  10%|█         | 1/10 [00:00<00:04,  1.98it/s][A
+
+Grid 42/60:  20%|██        | 2/10 [00:01<00:06,  1.17it/s][A
+
+Grid 42/60:  30%|███       | 3/10 [00:02<00:04,  1.40it/s][A
+
+Grid 42/60:  40%|████      | 4/10 [00:02<00:04,  1.35it/s][A
+
+Grid 42/60:  50%|█████     | 5/10 [00:03<00:03,  1.26it/s][A
+
+Grid 42/60:  60%|██████    | 6/10 [00:04<00:03,  1.32it/s][A
+
+Grid 42/60:  70%|███████   | 7/10 [00:05<00:02,  1.38it/s][A
+
+Grid 42/60:  80%|████████  | 8/10 [00:06<00:01,  1.08it/s][A
+
+Grid 42/60:  90%|█████████ | 9/10 [00:07<00:00,  1.22it/s][A
+Grid 42/60: 100%|██████████| 10/10 [00:07<00:00,  1.40it/s]
+
+Grid Search:  70%|███████   | 42/60 [04:57<02:08,  7.15s/it]
+
+Grid 43/60:   0%|          | 0/10 [00:00<?, ?it/s][A
+
+Grid 43/60:  10%|█         | 1/10 [00:00<00:04,  1.98it/s][A
+
+Grid 43/60:  20%|██        | 2/10 [00:01<00:06,  1.17it/s][A
+
+Grid 43/60:  30%|███       | 3/10 [00:02<00:04,  1.40it/s][A
+
+Grid 43/60:  40%|████      | 4/10 [00:02<00:04,  1.35it/s][A
+
+Grid 43/60:  50%|█████     | 5/10 [00:03<00:03,  1.26it/s][A
+
+Grid 43/60:  60%|██████    | 6/10 [00:04<00:03,  1.32it/s][A
+
+Grid 43/60:  70%|███████   | 7/10 [00:05<00:02,  1.38it/s][A
+
+Grid 43/60:  80%|████████  | 8/10 [00:06<00:01,  1.08it/s][A
+
+Grid 43/60:  90%|█████████ | 9/10 [00:07<00:00,  1.22it/s][A
+Grid 43/60: 100%|██████████| 10/10 [00:07<00:00,  1.40it/s]
+
+Grid Search:  72%|███████▏  | 43/60 [05:04<02:01,  7.15s/it]
+
+Grid 44/60:   0%|          | 0/10 [00:00<?, ?it/s][A
+
+Grid 44/60:  10%|█         | 1/10 [00:00<00:04,  1.95it/s][A
+
+Grid 44/60:  20%|██        | 2/10 [00:01<00:06,  1.17it/s][A
+
+Grid 44/60:  30%|███       | 3/10 [00:02<00:04,  1.40it/s][A
+
+Grid 44/60:  40%|████      | 4/10 [00:02<00:04,  1.35it/s][A
+
+Grid 44/60:  50%|█████     | 5/10 [00:03<00:03,  1.26it/s][A
+
+Grid 44/60:  60%|██████    | 6/10 [00:04<00:03,  1.32it/s][A
+
+Grid 44/60:  70%|███████   | 7/10 [00:05<00:02,  1.37it/s][A
+
+Grid 44/60:  80%|████████  | 8/10 [00:06<00:01,  1.08it/s][A
+
+Grid 44/60:  90%|█████████ | 9/10 [00:07<00:00,  1.22it/s][A
+Grid 44/60: 100%|██████████| 10/10 [00:07<00:00,  1.40it/s]
+
+Grid Search:  73%|███████▎  | 44/60 [05:11<01:54,  7.15s/it]
+
+Grid 45/60:   0%|          | 0/10 [00:00<?, ?it/s][A
+
+Grid 45/60:  10%|█         | 1/10 [00:00<00:04,  1.99it/s][A
+
+Grid 45/60:  20%|██        | 2/10 [00:01<00:06,  1.17it/s][A
+
+Grid 45/60:  30%|███       | 3/10 [00:02<00:04,  1.41it/s][A
+
+Grid 45/60:  40%|████      | 4/10 [00:02<00:04,  1.36it/s][A
+
+Grid 45/60:  50%|█████     | 5/10 [00:03<00:03,  1.27it/s][A
+
+Grid 45/60:  60%|██████    | 6/10 [00:04<00:03,  1.33it/s][A
+
+Grid 45/60:  70%|███████   | 7/10 [00:05<00:02,  1.38it/s][A
+
+Grid 45/60:  80%|████████  | 8/10 [00:06<00:01,  1.08it/s][A
+
+Grid 45/60:  90%|█████████ | 9/10 [00:07<00:00,  1.22it/s][A
+Grid 45/60: 100%|██████████| 10/10 [00:07<00:00,  1.41it/s]
+
+Grid Search:  75%|███████▌  | 45/60 [05:18<01:47,  7.14s/it]
+
+Grid 46/60:   0%|          | 0/10 [00:00<?, ?it/s][A
+
+Grid 46/60:  10%|█         | 1/10 [00:00<00:04,  1.98it/s][A
+
+Grid 46/60:  20%|██        | 2/10 [00:01<00:06,  1.17it/s][A
+
+Grid 46/60:  30%|███       | 3/10 [00:02<00:04,  1.41it/s][A
+
+Grid 46/60:  40%|████      | 4/10 [00:02<00:04,  1.35it/s][A
+
+Grid 46/60:  50%|█████     | 5/10 [00:03<00:03,  1.26it/s][A
+
+Grid 46/60:  60%|██████    | 6/10 [00:04<00:03,  1.32it/s][A
+
+Grid 46/60:  70%|███████   | 7/10 [00:05<00:02,  1.38it/s][A
+
+Grid 46/60:  80%|████████  | 8/10 [00:06<00:01,  1.08it/s][A
+
+Grid 46/60:  90%|█████████ | 9/10 [00:07<00:00,  1.22it/s][A
+Grid 46/60: 100%|██████████| 10/10 [00:07<00:00,  1.40it/s]
+
+Grid Search:  77%|███████▋  | 46/60 [05:25<01:39,  7.14s/it]
+
+Grid 47/60:   0%|          | 0/10 [00:00<?, ?it/s][A
+
+Grid 47/60:  10%|█         | 1/10 [00:00<00:04,  1.99it/s][A
+
+Grid 47/60:  20%|██        | 2/10 [00:01<00:06,  1.18it/s][A
+
+Grid 47/60:  30%|███       | 3/10 [00:02<00:04,  1.41it/s][A
+
+Grid 47/60:  40%|████      | 4/10 [00:02<00:04,  1.36it/s][A
+
+Grid 47/60:  50%|█████     | 5/10 [00:03<00:03,  1.26it/s][A
+
+Grid 47/60:  60%|██████    | 6/10 [00:04<00:03,  1.32it/s][A
+
+Grid 47/60:  70%|███████   | 7/10 [00:05<00:02,  1.38it/s][A
+
+Grid 47/60:  80%|████████  | 8/10 [00:06<00:01,  1.08it/s][A
+
+Grid 47/60:  90%|█████████ | 9/10 [00:07<00:00,  1.22it/s][A
+Grid 47/60: 100%|██████████| 10/10 [00:07<00:00,  1.40it/s]
+
+Grid Search:  78%|███████▊  | 47/60 [05:33<01:32,  7.13s/it]
+
+Grid 48/60:   0%|          | 0/10 [00:00<?, ?it/s][A
+
+Grid 48/60:  10%|█         | 1/10 [00:00<00:04,  1.99it/s][A
+
+Grid 48/60:  20%|██        | 2/10 [00:01<00:06,  1.17it/s][A
+
+Grid 48/60:  30%|███       | 3/10 [00:02<00:04,  1.41it/s][A
+
+Grid 48/60:  40%|████      | 4/10 [00:02<00:04,  1.35it/s][A
+
+Grid 48/60:  50%|█████     | 5/10 [00:03<00:03,  1.26it/s][A
+
+Grid 48/60:  60%|██████    | 6/10 [00:04<00:03,  1.32it/s][A
+
+Grid 48/60:  70%|███████   | 7/10 [00:05<00:02,  1.38it/s][A
+
+Grid 48/60:  80%|████████  | 8/10 [00:06<00:01,  1.08it/s][A
+
+Grid 48/60:  90%|█████████ | 9/10 [00:07<00:00,  1.22it/s][A
+Grid 48/60: 100%|██████████| 10/10 [00:07<00:00,  1.40it/s]
+
+Grid Search:  80%|████████  | 48/60 [05:40<01:25,  7.13s/it]
+
+Grid 49/60:   0%|          | 0/10 [00:00<?, ?it/s][A
+
+Grid 49/60:  10%|█         | 1/10 [00:00<00:04,  1.99it/s][A
+
+Grid 49/60:  20%|██        | 2/10 [00:01<00:06,  1.17it/s][A
+
+Grid 49/60:  30%|███       | 3/10 [00:02<00:04,  1.41it/s][A
+
+Grid 49/60:  40%|████      | 4/10 [00:02<00:04,  1.36it/s][A
+
+Grid 49/60:  50%|█████     | 5/10 [00:03<00:03,  1.26it/s][A
+
+Grid 49/60:  60%|██████    | 6/10 [00:04<00:03,  1.33it/s][A
+
+Grid 49/60:  70%|███████   | 7/10 [00:05<00:02,  1.38it/s][A
+
+Grid 49/60:  80%|████████  | 8/10 [00:06<00:01,  1.07it/s][A
+
+Grid 49/60:  90%|█████████ | 9/10 [00:07<00:00,  1.21it/s][A
+Grid 49/60: 100%|██████████| 10/10 [00:07<00:00,  1.40it/s]
+
+Grid Search:  82%|████████▏ | 49/60 [05:47<01:18,  7.14s/it]
+
+Grid 50/60:   0%|          | 0/10 [00:00<?, ?it/s][A
+
+Grid 50/60:  10%|█         | 1/10 [00:00<00:04,  1.99it/s][A
+
+Grid 50/60:  20%|██        | 2/10 [00:01<00:06,  1.17it/s][A
+
+Grid 50/60:  30%|███       | 3/10 [00:02<00:04,  1.41it/s][A
+
+Grid 50/60:  40%|████      | 4/10 [00:02<00:04,  1.36it/s][A
+
+Grid 50/60:  50%|█████     | 5/10 [00:03<00:03,  1.26it/s][A
+
+Grid 50/60:  60%|██████    | 6/10 [00:04<00:03,  1.33it/s][A
+
+Grid 50/60:  70%|███████   | 7/10 [00:05<00:02,  1.38it/s][A
+
+Grid 50/60:  80%|████████  | 8/10 [00:06<00:01,  1.08it/s][A
+
+Grid 50/60:  90%|█████████ | 9/10 [00:07<00:00,  1.22it/s][A
+Grid 50/60: 100%|██████████| 10/10 [00:07<00:00,  1.40it/s]
+
+Grid Search:  83%|████████▎ | 50/60 [05:54<01:11,  7.14s/it]  [50/60] Elapsed: 5.9 min
+
+
+Grid 51/60:   0%|          | 0/10 [00:00<?, ?it/s][A
+
+Grid 51/60:  10%|█         | 1/10 [00:00<00:04,  1.96it/s][A
+
+Grid 51/60:  20%|██        | 2/10 [00:01<00:06,  1.16it/s][A
+
+Grid 51/60:  30%|███       | 3/10 [00:02<00:05,  1.40it/s][A
+
+Grid 51/60:  40%|████      | 4/10 [00:02<00:04,  1.34it/s][A
+
+Grid 51/60:  50%|█████     | 5/10 [00:03<00:03,  1.26it/s][A
+
+Grid 51/60:  60%|██████    | 6/10 [00:04<00:03,  1.32it/s][A
+
+Grid 51/60:  70%|███████   | 7/10 [00:05<00:02,  1.37it/s][A
+
+Grid 51/60:  80%|████████  | 8/10 [00:06<00:01,  1.08it/s][A
+
+Grid 51/60:  90%|█████████ | 9/10 [00:07<00:00,  1.22it/s][A
+Grid 51/60: 100%|██████████| 10/10 [00:07<00:00,  1.40it/s]
+
+Grid Search:  85%|████████▌ | 51/60 [06:01<01:04,  7.15s/it]
+
+Grid 52/60:   0%|          | 0/10 [00:00<?, ?it/s][A
+
+Grid 52/60:  10%|█         | 1/10 [00:00<00:04,  2.00it/s][A
+
+Grid 52/60:  20%|██        | 2/10 [00:01<00:06,  1.17it/s][A
+
+Grid 52/60:  30%|███       | 3/10 [00:02<00:04,  1.41it/s][A
+
+Grid 52/60:  40%|████      | 4/10 [00:02<00:04,  1.36it/s][A
+
+Grid 52/60:  50%|█████     | 5/10 [00:03<00:03,  1.26it/s][A
+
+Grid 52/60:  60%|██████    | 6/10 [00:04<00:03,  1.33it/s][A
+
+Grid 52/60:  70%|███████   | 7/10 [00:05<00:02,  1.38it/s][A
+
+Grid 52/60:  80%|████████  | 8/10 [00:06<00:01,  1.08it/s][A
+
+Grid 52/60:  90%|█████████ | 9/10 [00:07<00:00,  1.22it/s][A
+Grid 52/60: 100%|██████████| 10/10 [00:07<00:00,  1.41it/s]
+
+Grid Search:  87%|████████▋ | 52/60 [06:08<00:57,  7.14s/it]
+
+Grid 53/60:   0%|          | 0/10 [00:00<?, ?it/s][A
+
+Grid 53/60:  10%|█         | 1/10 [00:00<00:04,  1.99it/s][A
+
+Grid 53/60:  20%|██        | 2/10 [00:01<00:06,  1.17it/s][A
+
+Grid 53/60:  30%|███       | 3/10 [00:02<00:04,  1.41it/s][A
+
+Grid 53/60:  40%|████      | 4/10 [00:02<00:04,  1.36it/s][A
+
+Grid 53/60:  50%|█████     | 5/10 [00:03<00:03,  1.27it/s][A
+
+Grid 53/60:  60%|██████    | 6/10 [00:04<00:03,  1.33it/s][A
+
+Grid 53/60:  70%|███████   | 7/10 [00:05<00:02,  1.38it/s][A
+
+Grid 53/60:  80%|████████  | 8/10 [00:06<00:01,  1.08it/s][A
+
+Grid 53/60:  90%|█████████ | 9/10 [00:07<00:00,  1.22it/s][A
+Grid 53/60: 100%|██████████| 10/10 [00:07<00:00,  1.41it/s]
+
+Grid Search:  88%|████████▊ | 53/60 [06:15<00:49,  7.13s/it]
+
+Grid 54/60:   0%|          | 0/10 [00:00<?, ?it/s][A
+
+Grid 54/60:  10%|█         | 1/10 [00:00<00:04,  1.98it/s][A
+
+Grid 54/60:  20%|██        | 2/10 [00:01<00:06,  1.18it/s][A
+
+Grid 54/60:  30%|███       | 3/10 [00:02<00:04,  1.40it/s][A
+
+Grid 54/60:  40%|████      | 4/10 [00:02<00:04,  1.35it/s][A
+
+Grid 54/60:  50%|█████     | 5/10 [00:03<00:03,  1.27it/s][A
+
+Grid 54/60:  60%|██████    | 6/10 [00:04<00:03,  1.33it/s][A
+
+Grid 54/60:  70%|███████   | 7/10 [00:05<00:02,  1.39it/s][A
+
+Grid 54/60:  80%|████████  | 8/10 [00:06<00:01,  1.09it/s][A
+
+Grid 54/60:  90%|█████████ | 9/10 [00:07<00:00,  1.23it/s][A
+Grid 54/60: 100%|██████████| 10/10 [00:07<00:00,  1.41it/s]
+
+Grid Search:  90%|█████████ | 54/60 [06:22<00:42,  7.12s/it]
+
+Grid 55/60:   0%|          | 0/10 [00:00<?, ?it/s][A
+
+Grid 55/60:  10%|█         | 1/10 [00:00<00:04,  1.97it/s][A
+
+Grid 55/60:  20%|██        | 2/10 [00:01<00:06,  1.17it/s][A
+
+Grid 55/60:  30%|███       | 3/10 [00:02<00:04,  1.41it/s][A
+
+Grid 55/60:  40%|████      | 4/10 [00:02<00:04,  1.35it/s][A
+
+Grid 55/60:  50%|█████     | 5/10 [00:03<00:03,  1.26it/s][A
+
+Grid 55/60:  60%|██████    | 6/10 [00:04<00:03,  1.33it/s][A
+
+Grid 55/60:  70%|███████   | 7/10 [00:05<00:02,  1.38it/s][A
+
+Grid 55/60:  80%|████████  | 8/10 [00:06<00:01,  1.08it/s][A
+
+Grid 55/60:  90%|█████████ | 9/10 [00:07<00:00,  1.22it/s][A
+Grid 55/60: 100%|██████████| 10/10 [00:07<00:00,  1.40it/s]
+
+Grid Search:  92%|█████████▏| 55/60 [06:30<00:35,  7.12s/it]
+
+Grid 56/60:   0%|          | 0/10 [00:00<?, ?it/s][A
+
+Grid 56/60:  10%|█         | 1/10 [00:00<00:04,  1.98it/s][A
+
+Grid 56/60:  20%|██        | 2/10 [00:01<00:06,  1.17it/s][A
+
+Grid 56/60:  30%|███       | 3/10 [00:02<00:04,  1.41it/s][A
+
+Grid 56/60:  40%|████      | 4/10 [00:02<00:04,  1.35it/s][A
+
+Grid 56/60:  50%|█████     | 5/10 [00:03<00:03,  1.26it/s][A
+
+Grid 56/60:  60%|██████    | 6/10 [00:04<00:03,  1.32it/s][A
+
+Grid 56/60:  70%|███████   | 7/10 [00:05<00:02,  1.38it/s][A
+
+Grid 56/60:  80%|████████  | 8/10 [00:06<00:01,  1.08it/s][A
+
+Grid 56/60:  90%|█████████ | 9/10 [00:07<00:00,  1.22it/s][A
+Grid 56/60: 100%|██████████| 10/10 [00:07<00:00,  1.40it/s]
+
+Grid Search:  93%|█████████▎| 56/60 [06:37<00:28,  7.13s/it]
+
+Grid 57/60:   0%|          | 0/10 [00:00<?, ?it/s][A
+
+Grid 57/60:  10%|█         | 1/10 [00:00<00:04,  1.97it/s][A
+
+Grid 57/60:  20%|██        | 2/10 [00:01<00:06,  1.17it/s][A
+
+Grid 57/60:  30%|███       | 3/10 [00:02<00:04,  1.40it/s][A
+
+Grid 57/60:  40%|████      | 4/10 [00:02<00:04,  1.35it/s][A
+
+Grid 57/60:  50%|█████     | 5/10 [00:03<00:03,  1.26it/s][A
+
+Grid 57/60:  60%|██████    | 6/10 [00:04<00:03,  1.32it/s][A
+
+Grid 57/60:  70%|███████   | 7/10 [00:05<00:02,  1.38it/s][A
+
+Grid 57/60:  80%|████████  | 8/10 [00:06<00:01,  1.08it/s][A
+
+Grid 57/60:  90%|█████████ | 9/10 [00:07<00:00,  1.22it/s][A
+Grid 57/60: 100%|██████████| 10/10 [00:07<00:00,  1.40it/s]
+
+Grid Search:  95%|█████████▌| 57/60 [06:44<00:21,  7.13s/it]
+
+Grid 58/60:   0%|          | 0/10 [00:00<?, ?it/s][A
+
+Grid 58/60:  10%|█         | 1/10 [00:00<00:04,  1.98it/s][A
+
+Grid 58/60:  20%|██        | 2/10 [00:01<00:06,  1.17it/s][A
+
+Grid 58/60:  30%|███       | 3/10 [00:02<00:04,  1.40it/s][A
+
+Grid 58/60:  40%|████      | 4/10 [00:02<00:04,  1.35it/s][A
+
+Grid 58/60:  50%|█████     | 5/10 [00:03<00:03,  1.26it/s][A
+
+Grid 58/60:  60%|██████    | 6/10 [00:04<00:03,  1.33it/s][A
+
+Grid 58/60:  70%|███████   | 7/10 [00:05<00:02,  1.38it/s][A
+
+Grid 58/60:  80%|████████  | 8/10 [00:06<00:01,  1.08it/s][A
+
+Grid 58/60:  90%|█████████ | 9/10 [00:07<00:00,  1.22it/s][A
+Grid 58/60: 100%|██████████| 10/10 [00:07<00:00,  1.40it/s]
+
+Grid Search:  97%|█████████▋| 58/60 [06:51<00:14,  7.13s/it]
+
+Grid 59/60:   0%|          | 0/10 [00:00<?, ?it/s][A
+
+Grid 59/60:  10%|█         | 1/10 [00:00<00:04,  1.99it/s][A
+
+Grid 59/60:  20%|██        | 2/10 [00:01<00:06,  1.17it/s][A
+
+Grid 59/60:  30%|███       | 3/10 [00:02<00:04,  1.41it/s][A
+
+Grid 59/60:  40%|████      | 4/10 [00:02<00:04,  1.36it/s][A
+
+Grid 59/60:  50%|█████     | 5/10 [00:03<00:03,  1.26it/s][A
+
+Grid 59/60:  60%|██████    | 6/10 [00:04<00:03,  1.32it/s][A
+
+Grid 59/60:  70%|███████   | 7/10 [00:05<00:02,  1.38it/s][A
+
+Grid 59/60:  80%|████████  | 8/10 [00:06<00:01,  1.08it/s][A
+
+Grid 59/60:  90%|█████████ | 9/10 [00:07<00:00,  1.22it/s][A
+Grid 59/60: 100%|██████████| 10/10 [00:07<00:00,  1.40it/s]
+
+Grid Search:  98%|█████████▊| 59/60 [06:58<00:07,  7.14s/it]
+
+Grid 60/60:   0%|          | 0/10 [00:00<?, ?it/s][A
+
+Grid 60/60:  10%|█         | 1/10 [00:00<00:04,  1.95it/s][A
+
+Grid 60/60:  20%|██        | 2/10 [00:01<00:06,  1.17it/s][A
+
+Grid 60/60:  30%|███       | 3/10 [00:02<00:04,  1.40it/s][A
+
+Grid 60/60:  40%|████      | 4/10 [00:02<00:04,  1.35it/s][A
+
+Grid 60/60:  50%|█████     | 5/10 [00:03<00:03,  1.26it/s][A
+
+Grid 60/60:  60%|██████    | 6/10 [00:04<00:03,  1.32it/s][A
+
+Grid 60/60:  70%|███████   | 7/10 [00:05<00:02,  1.37it/s][A
+
+Grid 60/60:  80%|████████  | 8/10 [00:06<00:01,  1.08it/s][A
+
+Grid 60/60:  90%|█████████ | 9/10 [00:07<00:00,  1.22it/s][A
+Grid 60/60: 100%|██████████| 10/10 [00:07<00:00,  1.40it/s]
+
+Grid Search: 100%|██████████| 60/60 [07:05<00:00,  7.14s/it]
+Grid Search: 100%|██████████| 60/60 [07:05<00:00,  7.10s/it]
+Grid search complete
+================================================================================
+
+Best config (selected by full benchmark delta): {'top_k_pos': 3, 'top_k_neg': 0, 'strength': 1.0, 'ranking_criterion': 'freq_diff', 'weighting_mode': 'uniform'}
+  Delta filtered: +0.0%, Delta full: +0.3%
+================================================================================
+PHASE 4: FULL REPORTING
+================================================================================
+  Exact intervention vector: 3 features
+  Approximated hidden vector norm: 1.9375
+
+  Filtered + Exact...
+
+Filtered + Exact:   0%|          | 0/1 [00:00<?, ?it/s]
+Filtered + Exact: 100%|██████████| 1/1 [00:00<00:00,  6.30it/s]
+Filtered + Exact: 100%|██████████| 1/1 [00:00<00:00,  6.29it/s]
+    Baseline: 18.2%, Intervention: 18.2%, Delta: +0.0%
+
+  Full + Exact...
+
+Full + Exact:   0%|          | 0/10 [00:00<?, ?it/s]
+Full + Exact:  10%|█         | 1/10 [00:00<00:04,  1.98it/s]
+Full + Exact:  20%|██        | 2/10 [00:01<00:06,  1.17it/s]
+Full + Exact:  30%|███       | 3/10 [00:02<00:04,  1.40it/s]
+Full + Exact:  40%|████      | 4/10 [00:02<00:04,  1.35it/s]
+Full + Exact:  50%|█████     | 5/10 [00:03<00:03,  1.26it/s]
+Full + Exact:  60%|██████    | 6/10 [00:04<00:03,  1.32it/s]
+Full + Exact:  70%|███████   | 7/10 [00:05<00:02,  1.38it/s]
+Full + Exact:  80%|████████  | 8/10 [00:06<00:01,  1.08it/s]
+Full + Exact:  90%|█████████ | 9/10 [00:07<00:00,  1.22it/s]
+Full + Exact: 100%|██████████| 10/10 [00:07<00:00,  1.40it/s]
+    Baseline: 7.3%, Intervention: 7.6%, Delta: +0.3%
+
+  Filtered + Approximated...
+
+Filtered + Approximated:   0%|          | 0/1 [00:00<?, ?it/s]
+Filtered + Approximated: 100%|██████████| 1/1 [00:00<00:00,  6.35it/s]
+Filtered + Approximated: 100%|██████████| 1/1 [00:00<00:00,  6.35it/s]
+    Baseline: 18.2%, Intervention: 18.2%, Delta: +0.0%
+
+  Full + Approximated...
+
+Full + Approximated:   0%|          | 0/10 [00:00<?, ?it/s]
+Full + Approximated:  10%|█         | 1/10 [00:00<00:04,  2.00it/s]
+Full + Approximated:  20%|██        | 2/10 [00:01<00:06,  1.18it/s]
+Full + Approximated:  30%|███       | 3/10 [00:02<00:04,  1.42it/s]
+Full + Approximated:  40%|████      | 4/10 [00:02<00:04,  1.36it/s]
+Full + Approximated:  50%|█████     | 5/10 [00:03<00:03,  1.27it/s]
+Full + Approximated:  60%|██████    | 6/10 [00:04<00:03,  1.33it/s]
+Full + Approximated:  70%|███████   | 7/10 [00:05<00:02,  1.39it/s]
+Full + Approximated:  80%|████████  | 8/10 [00:06<00:01,  1.09it/s]
+Full + Approximated:  90%|█████████ | 9/10 [00:07<00:00,  1.23it/s]
+Full + Approximated: 100%|██████████| 10/10 [00:07<00:00,  1.41it/s]
+    Baseline: 7.3%, Intervention: 7.6%, Delta: +0.3%
+
+  Running difficulty analysis...
+
+Difficulty Analysis:   0%|          | 0/10 [00:00<?, ?it/s]
+Difficulty Analysis:  10%|█         | 1/10 [00:00<00:04,  1.99it/s]
+Difficulty Analysis:  20%|██        | 2/10 [00:01<00:06,  1.17it/s]
+Difficulty Analysis:  30%|███       | 3/10 [00:02<00:04,  1.41it/s]
+Difficulty Analysis:  40%|████      | 4/10 [00:02<00:04,  1.35it/s]
+Difficulty Analysis:  50%|█████     | 5/10 [00:03<00:03,  1.26it/s]
+Difficulty Analysis:  60%|██████    | 6/10 [00:04<00:03,  1.32it/s]
+Difficulty Analysis:  70%|███████   | 7/10 [00:05<00:02,  1.38it/s]
+Difficulty Analysis:  80%|████████  | 8/10 [00:06<00:01,  1.08it/s]
+Difficulty Analysis:  90%|█████████ | 9/10 [00:07<00:00,  1.22it/s]
+Difficulty Analysis: 100%|██████████| 10/10 [00:07<00:00,  1.40it/s]
+
+================================================================================
+FULL REPORTING SUMMARY
+================================================================================
+Report                              N   Baseline    Interv.    Delta    p-value
+────────────────────────────────────────────────────────────────────────────────
+Filtered + Exact                   11      18.2%      18.2%    +0.0%     0.7500
+Full + Exact                      289       7.3%       7.6%    +0.3%     0.5000
+Filtered + Approximated            11      18.2%      18.2%    +0.0%     0.7500
+Full + Approximated               289       7.3%       7.6%    +0.3%     0.5000
+================================================================================
+K-FOLD VALIDATION
+================================================================================
+  Data: 33 questions, K=5 folds (batch_size=32)
+
+Fold 1 Baseline:   0%|          | 0/1 [00:00<?, ?it/s]
+Fold 1 Baseline: 100%|██████████| 1/1 [00:00<00:00, 17.59it/s]
+
+Fold 1 Intervention:   0%|          | 0/1 [00:00<?, ?it/s]
+Fold 1 Intervention: 100%|██████████| 1/1 [00:00<00:00, 15.94it/s]
+  Fold 1: Baseline=16.7%, Int=16.7%, Delta=+0.0% (0+ 0-)
+
+Fold 2 Baseline:   0%|          | 0/1 [00:00<?, ?it/s]
+Fold 2 Baseline: 100%|██████████| 1/1 [00:00<00:00, 12.81it/s]
+
+Fold 2 Intervention:   0%|          | 0/1 [00:00<?, ?it/s]
+Fold 2 Intervention: 100%|██████████| 1/1 [00:00<00:00, 12.63it/s]
+  Fold 2: Baseline=16.7%, Int=16.7%, Delta=+0.0% (0+ 0-)
+
+Fold 3 Baseline:   0%|          | 0/1 [00:00<?, ?it/s]
+Fold 3 Baseline: 100%|██████████| 1/1 [00:00<00:00, 13.81it/s]
+
+Fold 3 Intervention:   0%|          | 0/1 [00:00<?, ?it/s]
+Fold 3 Intervention: 100%|██████████| 1/1 [00:00<00:00, 13.38it/s]
+  Fold 3: Baseline=33.3%, Int=33.3%, Delta=+0.0% (1+ 1-)
+
+Fold 4 Baseline:   0%|          | 0/1 [00:00<?, ?it/s]
+Fold 4 Baseline: 100%|██████████| 1/1 [00:00<00:00, 11.05it/s]
+
+Fold 4 Intervention:   0%|          | 0/1 [00:00<?, ?it/s]
+Fold 4 Intervention: 100%|██████████| 1/1 [00:00<00:00, 10.88it/s]
+  Fold 4: Baseline=50.0%, Int=66.7%, Delta=+16.7% (2+ 1-)
+
+Fold 5 Baseline:   0%|          | 0/1 [00:00<?, ?it/s]
+Fold 5 Baseline: 100%|██████████| 1/1 [00:00<00:00, 10.17it/s]
+
+Fold 5 Intervention:   0%|          | 0/1 [00:00<?, ?it/s]
+Fold 5 Intervention: 100%|██████████| 1/1 [00:00<00:00, 10.03it/s]
+  Fold 5: Baseline=22.2%, Int=33.3%, Delta=+11.1% (1+ 0-)
+
+  Mean delta: +5.56% +/- 7.86%
+  95% CI: [-1.33%, +12.44%]
+  Positive folds: 2/5
+  McNemar p-value: 0.3438 (not significant)
+================================================================================
+Plot saved: results/full_reporting_mmlu_pro_cs_batchtopk_L9_K32.png
+Summary saved: results/experiment22_mmlu_pro_cs_batchtopk_L9_K32_20260321_084001.json
+================================================================================
+EXPERIMENT COMPLETE
+================================================================================
+
+  SAE: EleutherAI TopK K32 131k MLP (Llama-3.2-1B) (batchtopk, layer 9)
+  Benchmark: MMLU-Pro Computer Science
+  Model: llama32_1b
+
+  Best config: K+=3, K-=0, strength=1.0, ranking=freq_diff, weighting=uniform
+  Features used: 3
+
+────────────────────────────────────────────────────────────────────────────────
+Report                              N   Baseline    Interv.    Delta    p-value
+────────────────────────────────────────────────────────────────────────────────
+Filtered + Exact                   11      18.2%      18.2%    +0.0%     0.7500
+Full + Exact                      289       7.3%       7.6%    +0.3%     0.5000
+Filtered + Approximated            11      18.2%      18.2%    +0.0%     0.7500
+Full + Approximated               289       7.3%       7.6%    +0.3%     0.5000
+
+  K-Fold: mean delta = +5.56% +/- 7.86%
+  Positive folds: 2/5
+  McNemar p-value: 0.3438
+
+  Verdict (1/4 positive indicators): NO CLEAR ADVANTAGE on this benchmark
+
+  Files saved:
+    results/experiment22_mmlu_pro_cs_batchtopk_L9_K32_20260321_084001.json
+    results/full_reporting_mmlu_pro_cs_batchtopk_L9_K32.png
+================================================================================
+
+======================================================================
+Finished: 2026-03-21T08:40:02.375515
+Duration: 0:08:18
+Result: SUCCESS

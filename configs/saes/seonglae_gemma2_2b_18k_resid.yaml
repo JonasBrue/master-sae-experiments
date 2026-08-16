@@ -1,0 +1,16 @@
+name: "Seonglae TopK K64 18k Resid (Gemma-2-2B base, fineweb seed42)"
+architecture: "batchtopk"
+repo: "seonglae/gemma-2-2b-sae"
+filename: "gemma-2-2b_blocks.20.hook_resid_pre_18432_topk_64_0.0003_42_fineweb_1024/sae_weights.safetensors"
+config_filename: "gemma-2-2b_blocks.20.hook_resid_pre_18432_topk_64_0.0003_42_fineweb_1024/cfg.json"
+# SAE trained on blocks.20.hook_resid_pre (TransformerLens naming).
+# blocks.20.hook_resid_pre == output of layer 19 = HF layer 19 resid_post (tensor equality, no approximation).
+# We hook layer 19 resid_post to capture the identical residual-stream tensor.
+available_layers: [19]
+d_model: 2304
+d_hidden: 18432
+top_k: 64
+file_format: "safetensors"
+hook_point: "resid_post"
+model: "../models/gemma2_2b.yaml"
+# cfg.json: apply_b_dec_to_input=true → matches default center_input=true (not set explicitly, per codebase convention)

@@ -1,0 +1,12 @@
+name: "EleutherAI TopK 65k MLP (Pythia-410M)"
+architecture: "batchtopk"
+repo: "EleutherAI/sae-pythia-410m-65k"
+filename: "layers.{layer}.mlp/sae.safetensors"
+config_filename: "layers.{layer}.mlp/cfg.json"
+available_layers: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]
+d_model: 1024
+d_hidden: 65536
+top_k: 32
+file_format: "safetensors"
+hook_point: "mlp"
+model: "../models/pythia_410m.yaml"

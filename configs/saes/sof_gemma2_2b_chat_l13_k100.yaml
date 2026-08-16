@@ -1,0 +1,24 @@
+name: "Science-of-Finetuning Chat SAE (Gemma-2-2B-IT, BatchTopK K100, 32x, Layer 13)"
+architecture: "batchtopk"
+repo: "science-of-finetuning/SAE-chat-gemma-2-2b-L13-k100-lr1e-04-local-shuffling"
+filename: "model.safetensors"
+config_filename: "config.json"
+# Chat SAE trained on gemma-2-2b-it (instruct) activations at layer 13.
+# Training data: mix of lmsys + fineweb. Expansion factor = 32 (73728 / 2304).
+# State dict uses encoder.weight/decoder.weight keys (loader auto-transposes).
+# config.json only has {activation_dim, dict_size, k} — no apply_b_dec_to_input field;
+# using default center_input=true (standard SAE convention).
+# Hook point: residual stream. The science-of-finetuning SAE/Crosscoder family is an open-source
+# replication of Anthropic's Crosscoder paper using jkminder/dictionary_learning; their "L13" repos
+# train on TransformerLens blocks.14.hook_resid_pre, which is tensor-equal to HF layer 13 resid_post.
+# Confirmed by:
+#   - LessWrong replication post explicitly states "Activation site: resid_pre layer 14"
+#     (https://www.lesswrong.com/posts/srt6JXsRMtmqAJavD/...)
+#   - dict_size = 73728 = 2304 × 32 → pure resid expansion (no MLP-inner / head dim).
+available_layers: [13]
+d_model: 2304
+d_hidden: 73728
+top_k: 100
+file_format: "safetensors"
+hook_point: "resid_post"
+model: "../models/gemma2_2b_it.yaml"

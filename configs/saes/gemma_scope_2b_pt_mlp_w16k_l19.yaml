@@ -1,0 +1,14 @@
+name: "Gemma Scope 2B-PT MLP W16K L19 (L0=109)"
+architecture: "jump_relu"
+repo: "google/gemma-scope-2b-pt-mlp"
+filename: "layer_19/width_16k/average_l0_109/params.npz"
+# Gemma-Scope-1 repos do not ship per-SAE config.json files (only params.npz).
+# Layer 19 mid-sparsity choice (L0 options: [25, 50, 109, 295, 673]).
+# Matches layer of gemma_scope_2b_pt_res_w16k_l19.yaml for hook-type comparison.
+available_layers: [19]
+d_model: 2304
+d_hidden: 16384
+file_format: "npz"
+hook_point: "mlp"
+center_input: false
+model: "../models/gemma2_2b.yaml"

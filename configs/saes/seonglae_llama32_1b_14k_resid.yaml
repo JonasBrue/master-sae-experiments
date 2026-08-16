@@ -1,0 +1,16 @@
+name: "Seonglae TopK K48 14k Resid (Llama-3.2-1B base, fineweb seed42)"
+architecture: "batchtopk"
+repo: "seonglae/Llama-3.2-1B-sae"
+filename: "Llama-3.2-1B_blocks.12.hook_resid_pre_14336_topk_48_0.0002_42_fineweb_512/sae_weights.safetensors"
+config_filename: "Llama-3.2-1B_blocks.12.hook_resid_pre_14336_topk_48_0.0002_42_fineweb_512/cfg.json"
+# SAE trained on blocks.12.hook_resid_pre (TransformerLens naming).
+# blocks.12.hook_resid_pre == output of layer 11 = HF layer 11 resid_post (tensor equality, no approximation).
+# We hook layer 11 resid_post to capture the identical residual-stream tensor.
+available_layers: [11]
+d_model: 2048
+d_hidden: 14336
+top_k: 48
+file_format: "safetensors"
+hook_point: "resid_post"
+model: "../models/llama32_1b_base.yaml"
+# cfg.json: apply_b_dec_to_input=true → matches default center_input=true (not set explicitly, per codebase convention)

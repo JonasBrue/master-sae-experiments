@@ -1,0 +1,13 @@
+name: "Gemma Scope 9B-PT ATT W16K L20 (L0=76)"
+architecture: "jump_relu"
+repo: "google/gemma-scope-9b-pt-att"
+filename: "layer_20/width_16k/average_l0_76/params.npz"
+# Gemma-Scope-1 repos do not ship per-SAE config.json files (only params.npz).
+# Layer 20 mid-sparsity (L0 options: [20, 39, 76, 158, 342, 674]); middle of the 42-layer model.
+available_layers: [20]
+d_model: 3584
+d_hidden: 16384
+file_format: "npz"
+hook_point: "attention"
+center_input: false
+model: "../models/gemma2_9b.yaml"

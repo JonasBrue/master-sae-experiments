@@ -1,0 +1,14 @@
+name: OpenBookQA
+dataset_name: allenai/openbookqa
+dataset_config: main
+dataset_split_train: train
+dataset_split_test: test
+combine_splits: true
+choices: [A, B, C, D]
+answer_key_type: letter
+field_mapping:
+  question: question_stem
+  choices_format: dict_of_lists
+  answer: answerKey
+prompt_instruction: "Answer the following science question."
+cache_name: openbookqa_main

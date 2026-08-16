@@ -1,0 +1,29 @@
+# Letter Counting Benchmark Config
+# Based on notebook 19_Triple_Reporting_Letter_Counting_Dynmic_Min_Occ_NO_FILTER
+# NO DIFFICULTY FILTER - all questions included
+
+name: Letter-Counting
+dataset_name: letter_counting
+dataset_config: null
+dataset_split_train: train
+dataset_split_test: test
+combine_splits: true
+
+choices:
+  - "0"
+  - "1"
+  - "2"
+  - "3"
+  - "4"
+  - "5"
+
+answer_key_type: digit
+
+field_mapping:
+  question: question
+  choices_format: digit_list
+  answer: answer
+
+prompt_instruction: "Count how many times a specific letter appears in a word."
+special_formatting: letter_counting
+cache_name: letter_counting_v3_cleaned

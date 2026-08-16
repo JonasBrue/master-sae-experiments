@@ -1,0 +1,18 @@
+name: "Ale21m9 JumpReLU 16k Resid (Gemma-2-2B, pile, Layer 19) — EXPERIMENTAL"
+architecture: "jump_relu"
+repo: "Ale21m9/gemma-2b-finetuned-sae"
+filename: "blocks.19.hook_resid_post/sae_weights.safetensors"
+config_filename: "blocks.19.hook_resid_post/cfg.json"
+# "finetuned" in the repo name is a misnomer — verified safe to hook against base gemma-2-2b.
+# Ale21m9 has no finetuned Gemma LLM repo on HF; only SAE checkpoints.
+# cfg.json: model_name="gemma-2-2b", dataset_path="monology/pile-uncopyrighted",
+# no from_pretrained_path, finetuning_scaling_factor=false → SAE trained from scratch
+# on base-model Pile activations. "finetuned" likely refers to hyperparameter tuning.
+# cfg.json: apply_b_dec_to_input=false  -> center_input=false (overrides default).
+available_layers: [19]
+d_model: 2304
+d_hidden: 16384
+file_format: "safetensors"
+hook_point: "resid_post"
+center_input: false
+model: "../models/gemma2_2b.yaml"

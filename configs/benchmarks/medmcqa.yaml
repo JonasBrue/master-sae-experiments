@@ -1,0 +1,15 @@
+name: MedMCQA
+dataset_name: openlifescienceai/medmcqa
+dataset_config: default
+dataset_split_train: train
+dataset_split_test: validation
+combine_splits: false
+choices: [A, B, C, D]
+answer_key_type: index_1
+field_mapping:
+  question: question
+  choices_format: separate_fields
+  choices_fields: [opa, opb, opc, opd]
+  answer: cop
+prompt_instruction: "Answer the following medical multiple-choice question."
+cache_name: medmcqa_default

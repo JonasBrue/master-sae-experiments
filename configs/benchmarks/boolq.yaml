@@ -1,0 +1,16 @@
+name: BoolQ
+dataset_name: google/boolq
+dataset_config: default
+dataset_split_train: train
+dataset_split_test: validation
+combine_splits: true
+choices: [A, B]
+answer_key_type: index_0
+field_mapping:
+  question: question
+  question_fields: [passage, question]
+  choices_format: fixed
+  fixed_choices: ["False", "True"]
+  answer: answer
+prompt_instruction: "Read the passage and determine whether the question is true or false."
+cache_name: boolq_default

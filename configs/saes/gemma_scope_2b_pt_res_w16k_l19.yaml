@@ -1,0 +1,14 @@
+name: "Gemma Scope 2B-PT RES W16K L19 (L0=73)"
+architecture: "jump_relu"
+repo: "google/gemma-scope-2b-pt-res"
+filename: "layer_19/width_16k/average_l0_73/params.npz"
+# Gemma-Scope-1 repos do not ship per-SAE config.json files (only params.npz).
+# No config_filename needed; SAE dimensions are inferred from encoder weights at load time.
+# Layer 19 matches the hook point of seonglae_gemma2_2b_18k_resid.yaml for architecture comparison.
+available_layers: [19]
+d_model: 2304
+d_hidden: 16384
+file_format: "npz"
+hook_point: "resid_post"
+center_input: false
+model: "../models/gemma2_2b.yaml"

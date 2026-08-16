@@ -1,0 +1,16 @@
+name: WinoGrande
+dataset_name: allenai/winogrande
+dataset_config: winogrande_xl
+dataset_split_train: train
+dataset_split_test: validation
+combine_splits: false
+choices: [A, B]
+answer_key_type: index_1
+field_mapping:
+  question: sentence
+  choices_format: separate_fields
+  choices_fields: [option1, option2]
+  answer: answer
+prompt_instruction: "Fill in the blank (_) with the correct option."
+special_formatting: winogrande
+cache_name: winogrande_xl

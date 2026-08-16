@@ -1,0 +1,12 @@
+name: "EleutherAI TopK 64x MLP (SmolLM2-135M)"
+architecture: "batchtopk"
+repo: "EleutherAI/sae-SmolLM2-135M-64x"
+filename: "layers.{layer}.mlp/sae.safetensors"
+config_filename: "layers.{layer}.mlp/cfg.json"
+available_layers: [0, 3, 6, 9, 12, 15, 18, 21, 24, 27]
+d_model: 576
+d_hidden: 36864
+top_k: 32
+file_format: "safetensors"
+hook_point: "mlp"
+model: "../models/smollm2_135m.yaml"

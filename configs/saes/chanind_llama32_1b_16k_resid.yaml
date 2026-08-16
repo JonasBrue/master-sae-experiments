@@ -1,0 +1,15 @@
+name: "Chanind ReLU 16k Resid (Llama-3.2-1B base, fineweb)"
+architecture: "relu"
+repo: "chanind/sae-llama-3.2-1b-res"
+filename: "blocks.{layer}.hook_resid_post/sae_weights.safetensors"
+config_filename: "blocks.{layer}.hook_resid_post/cfg.json"
+# cfg.json: model_name="meta-llama/Llama-3.2-1B" (base), hook_name="blocks.{L}.hook_resid_post",
+# architecture="standard" with activation_fn="relu", expansion_factor=8 (2048*8=16384),
+# dataset=fineweb, normalize_activations="expected_average_only_in", apply_b_dec_to_input=true
+# (matches default center_input=true, so not set explicitly, per codebase convention).
+available_layers: [0, 1, 2, 3, 4, 5, 6, 7, 8]
+d_model: 2048
+d_hidden: 16384
+file_format: "safetensors"
+hook_point: "resid_post"
+model: "../models/llama32_1b_base.yaml"

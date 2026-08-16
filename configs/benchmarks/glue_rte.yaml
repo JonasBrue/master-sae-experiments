@@ -1,0 +1,16 @@
+name: GLUE-RTE
+dataset_name: gimmaru/glue-rte
+dataset_config: default
+dataset_split_train: validation
+dataset_split_test: validation
+combine_splits: false
+choices: [A, B]
+answer_key_type: index_0
+field_mapping:
+  question: sentence1
+  question_fields: [sentence1, sentence2]
+  choices_format: fixed
+  fixed_choices: ["entailment", "not_entailment"]
+  answer: label
+prompt_instruction: "Determine whether the second sentence is entailed by the first."
+cache_name: glue_rte_default
