@@ -2,6 +2,8 @@
 
 Code and results for the master's thesis **Improving LLM Performance via Sparse Autoencoder Feature Steering** (TU Berlin). The method is a five-phase training-free pipeline that leads from a frozen LLM, a public SAE, and a labelled benchmark to a single measured intervention. Every candidate feature is validated by moving it alone, and the questions that build the intervention are never the ones that judge it.
 
+The full thesis is in [`Brueggemann_Master_Thesis_2026.pdf`](Brueggemann_Master_Thesis_2026.pdf).
+
 ## Important folders and files
 
 ```
